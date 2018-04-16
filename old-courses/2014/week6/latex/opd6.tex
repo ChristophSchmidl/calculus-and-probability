@@ -1,0 +1,252 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 6}
+\author{Christoph Schmidl\\
+s4226887\\
+Informatica\\
+c.schmidl@student.ru.nl\\
+Exercise Teacher: Gergely Alp\'{a}r}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item (\textbf{10 points}) Vanessa wants to give her friend potted plants as present. At the local florist, the flowers come in four colours and there are three types of flower pots.
+
+
+\begin{enumerate}
+	\item[(a)] If Vanessa buys one potted flower (any combination of a flower and a pot), how many different options can Vanessa choose from?\\
+	\textbf{Solution:}\\
+
+Flowers: 4 types available\\
+Flower Pots: 3 types available\\
+
+All available combinations: $4 \cdot 3 = 12$\\
+	
+	
+	
+	\item[(b)] If Vanessa buys two potted flowers and she wants two different combinations, how many options does she have? (Two combinations are different if at least the colours of the flowers or the types of the pots are different.)\\
+	\textbf{Solution:}\\
+
+First choice of a potted flower is freely choosable, therefore 12 combinations.\\
+
+Second choice of a potted flower is now restricted by one which was chosen before. Therefore, there are now $12 - 1 = 11$ combinations available.
+
+Overall, she has $12 \cdot 11 = 132$ options to choose from.\\
+
+
+	
+	
+\end{enumerate}
+
+
+\item (\textbf{5 points}) In how many ways can seven people be seated on a sofa if there are only fours seats available?\\
+\textbf{Solution:}\\
+	
+We have $n = 7$, from which we take samples of size $r = 4$. The order matters and people who are already seated cannot be seated again: no replacement.\\
+
+Number of options: $7 \cdot 6 \cdot 5 \cdot 4 = 840 = \frac{7!}{3!} = \frac{7!}{(7-4)!}$
+
+
+Seven people can be seated on a sofa in 840 ways if there are only fours seats available.\\
+
+
+
+\item (\textbf{10 points}) Three cards are drawn at random (without replacement) from an ordinary deck of 52 cards (The four suits are spades, hearts, diamonds and clubs). Find the number of ways in which one can draw.
+
+
+
+\begin{enumerate}
+	\item[(a)] a diamond and a club and a heart in succession.\\
+	\textbf{Solution:}\\
+	
+We have 13 ways to draw a diamond from the whole suit of diamonds available. The same goes for the club and the heart. Therefore, we have $13 \cdot 13 \cdot 13 = 2197$ ways to draw a diamond and a club and a heart in succession.\\
+	
+
+	
+	\item[(b)] two hearts and a club or a spade.\\
+	\textbf{Solution:}\\
+	
+	
+There are 13 ways to draw one heart out of the suit. After that, we are left with 12. To draw a club or a spade, we are left with 26 ways, therefore we have $13 \cdot 12 \cdot 26 = 4056$ ways to draw two hearts and a club or a spade.\\
+	
+	
+	
+		
+\end{enumerate}
+
+
+\item (\textbf{20 points}) How many numbers, consisting of five different digits each, can be made from the digits $1,2,3,...,9$ if
+
+\begin{enumerate}
+	\item[(a)] the numbers must be odd?\\
+	\textbf{Solution:}\\
+	
+A number is odd, if it ends with the digit $1,3,5,7,9$\\
+
+Therefore, we have $5 \cdot 8 \cdot 7 \cdot 6 \cdot 5 = 8400$ numbers.\\	
+	
+	
+	
+	\item[(b)] the first two digits of each number are even?\\
+	\textbf{Solution:}\\
+	
+$4 \cdot 3 \cdot 7 \cdot 6 \cdot 5 = 2520$ numbers.\\	
+	
+	\newpage
+	
+	\item[(c)] How many numbers are in (a) and (b) if repetitions of the digits are allowed?\\
+	\textbf{Solution:}\\
+	
+\begin{enumerate}
+	\item[(a)] $5 \cdot 9^4 = 32805$
+	
+	
+	\item[(b)] $4^2 \cdot 9^3 = 11664$
+\end{enumerate}	
+	
+	
+	
+\end{enumerate}
+
+
+\item (\textbf{5 points}) How many different committees of 3 men and 4 women can be formed from 9 men and 6 women?\\
+	\textbf{Solution:}\\
+
+Ways to choose 3 men out of 9: ${9 \choose 3} = \frac{9!}{3!(9-3)!} = 84$\\
+
+Ways to choose 4 women out of 6: ${6 \choose 3} = \frac{6!}{4!(6-4)!} = 15$
+	
+Total number of possible committees of 3 men and 4 women formed from 9 men and 6 women: $84 \cdot 15 = 1260$\\	
+	
+	
+	
+\item (\textbf{5 points}) There are 8 people in a room. If everyone shakes everyone else's hand exactly one, how many handshakes occur?\\
+\textbf{Solution:}
+
+We can choose anyone of the 8 people to shake one's hand of one of the other 7. But because a handshake between person a and person b is the same as a handshake between person b and person a, we have to divide the whole number by 2.\\
+
+	
+\begin{align*}
+	\frac{8 \cdot 7}{2} = 28
+\end{align*}	
+	
+28 handshakes occur.\\	
+	
+	
+\item (\textbf{10 points}) From seven consonants and five vowels, how many words can be formed consisting of four different consonants and three different vowels? The words need not have meaning.\\
+\textbf{Solution:}\\
+	
+The number of ways to choose 4 different consonants out of 7 is ${7 \choose 4} = 35$\\
+
+The number of ways to choose 3 different vowels out of 5 is ${5 \choose 3} = 10$\\
+
+The number of ways to choose 4 different consonants and 3 different vowels is $35 * 10 = 350$\\
+
+Finally, these 7 letters can be arranged in $7!$ ways, therefore the total number of different words is $350 \cdot 7! = 1764000$\\	
+	
+	
+	
+\item (\textbf{15 points}) Expand the following expressions, either directly or via binomial coefficients. Make it clear how you proceed.
+
+\begin{enumerate}
+	\item[(a)] $(x+6)^3$\\
+	\textbf{Solution:}
+	
+	\begin{align*}
+	(x+6)^3 &= {3 \choose 0}x^3 \cdot 6^0 + {3 \choose 1}x^2 \cdot 6^1 + {3 \choose 2}x^1 \cdot 6^2 + {3 \choose 3}x^0 \cdot 6^3\\
+	&= x^3 + 18x^2 + 108x + 216
+	\end{align*}
+	
+	\item[(b)] $(x-y)^4$\\
+	\textbf{Solution:}\\
+	
+$(x-y)^4 =$	
+	\begin{align*}
+	{4 \choose 0}x^4 \cdot (-y)^0 + {4 \choose 1}x^3 \cdot (-y)^1 + {4 \choose 2}x^2 \cdot (-y)^2 + {4 \choose 3}x^1 \cdot (-y)^3 + {4 \choose 4}x^0 \cdot (-y)^4
+	\end{align*}
+
+$= x^4 - 4x^3y + 6x^2y^2 -4xy^3 + y^4$\\
+	
+	\item[(c)] $(x^2 + 2)^4$\\
+	\textbf{Solution:}\\
+
+$(x^2+2)^4 =$	
+	\begin{align*}
+	{4 \choose 0}(x^2)^4 \cdot 2^0 + {4 \choose 1}(x^2)^3 \cdot 2^1 + {4 \choose 2}(x^2)^2 \cdot 2^2 + {4 \choose 3}(x^2)^1 \cdot 2^3 + {4 \choose 4}(x^2)^0 \cdot 2^4
+	\end{align*}
+
+$= x^8 + 8x^6 + 24x^4 + 32x^2 + 16$\\	
+	
+\end{enumerate}	
+	
+	
+	
+\item (\textbf{5 points}) Find the coefficient that is written before $x$ in the expansion of $(x + \frac{2}{x})^9$.\\
+\textbf{Solution:}
+	
+\begin{align*}
+	{9 \choose 8}(x)^1 \cdot (\frac{2}{x})^8
+\end{align*}	
+	
+The coefficient of x is ${9 \choose 8} = 9$\\	
+	
+	
+\item (\textbf{5 points}) A school has 5 maths teachers, 3 English teachers and 2 IT teachers. From this whole group, a 5 teacher committe has to be established. Calculate the number of ways that this committee can be formed of at least one IT teacher must be on the committee.\\
+\textbf{Solution:}\\
+
+
+We have 5 slots to fill for this committee. One slot is already assigned to one IT teacher. We are now left with 4 slots which are freely available to everyone out this group of 9 teachers. Because order does not matter and also the subjects which the teachers are given are irrelevant, we come up with
+
+\begin{align*}
+{9 \choose 4} = \frac{9!}{4!(9-4)!} = 126
+\end{align*}
+
+126 ways to to form such a committee.\\
+
+	
+	
+\item (\textbf{10 points}) There are 12 provinces in the Netherlands. What is the probability that at least 2 of $r$ randomly selected Dutch-born people were born in the same province, where $r = 1, r = 2, r = 3, r = 4, r = 5, r = 6$\\
+\textbf{Solution:}\\
+	
+$n = 12$\\
+
+We look at samples of $r$, which are ordered, with replacement (the province can occur more than once as the birth place)\\
+
+
+$n^r = 12^r$ options for $r$ people.\\
+
+Number of options: $12 \cdot 11 ... (12 - r) = \frac{12!}{(12-r)!} = {12 \choose r}r!$	
+	
+The probability that $r$ people are born in different provinces in the Netherlands is 
+
+\begin{align*}
+	\frac{\frac{12!}{(12-r)!}}{12^r} = \frac{12!}{(12-r)! \cdot 12^r}
+\end{align*}	
+
+Therefore, the probability that at least 2 of $r$ randomly selected Dutch-born people were born in the same province is 
+
+\begin{align*}
+p(r) = 1 - \frac{12!}{(12-r)! \cdot 12^r}
+\end{align*}
+	
+
+$p(1) = 1 - \frac{12!}{11! \cdot 12} = 0$\\
+$p(2) = 1 - \frac{12!}{10! \cdot 12^2} = \frac{1}{12}$\\
+$p(3) = 1 - \frac{12!}{9! \cdot 12^3} = \frac{17}{72} $\\
+$p(4) = 1 - \frac{12!}{8! \cdot 12^4} = \frac{41}{96}$\\
+$p(5) = 1 - \frac{12!}{7! \cdot 12^5} = \frac{89}{144}$\\
+$p(6) = 1 - \frac{12!}{6! \cdot 12^6} = \frac{1343}{1728}$\\
+	
+\end{enumerate}
+
+\end{document}

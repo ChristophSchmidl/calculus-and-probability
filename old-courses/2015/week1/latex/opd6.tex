@@ -1,0 +1,229 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{framed} 
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 1}
+\author{Christoph Schmidl\\
+s4226887\\
+Informatica\\
+c.schmidl@student.ru.nl\\}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\textbf{After completing these exercises successfully you should be confident with the following topics:}
+
+\begin{itemize}
+	\item The domain and range of a function
+	\item The limit of a function
+\end{itemize}
+\vspace{1em}
+
+\begin{enumerate}
+
+\item (\textbf{10 points}) Let $f(x) = x - x^3$. Determine the values $x$ for which
+
+
+\begin{enumerate}
+	\item[1.] $f(x) = 0$\\
+	\textbf{Solution:}\\
+	
+	$\{-1,0,1\}$
+		
+	\item[2.] $f(x) > 0$\\
+	\textbf{Solution:}\\
+	
+	$(0,1)$ and $(-\infty, -1)$
+\end{enumerate}
+
+
+\item (\textbf{10 points}) Let's assume that $x$ runs through the interval $(0,1)$. What values does $y$ run through for $y = a + (b - a)x$, where $a,b \in \mathbb{R}$
+
+\textbf{Solution:}\\
+
+The most useful form of straight-line equations is the "slope-intercept" form
+
+\begin{equation}
+	y = mx + b \notag
+\end{equation}
+
+where $m$ is the slope and $b$ gives the y-intercept.
+
+In the given equation 
+
+\begin{equation}
+	y = (b-a)x + a \notag
+\end{equation}
+
+$(b-a)$ is the slope and $a$ is the y-intercept. Because we are dealing with variables here, I can't give definitive values for which y would run through. Nevertheless, the y-intercept would be $a$ and the slope would be $(b-a)$.
+
+
+\item (\textbf{10 points}) Are the following function even or odd? In your explanation use the definition.\\
+
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Parity of function}\\
+
+A function $f: (-a,a) \rightarrow \mathbb{R}$ is \textbf{even} if $f(-x) = f(x)$, for all $x \in (-a,a)$, and \textbf{odd} if $f(-x) = -f(x)$, for all $x \in (-a,a)$.}}
+
+
+\begin{enumerate}
+	\item $f(x) = 3x - x^3$\\
+	\textbf{Solution:}\\
+	
+	Let's check if the function is odd by checking if $f(-x) = -f(x)$\\
+	\begin{align}
+		f(x) &= 3x - x^3 \notag\\
+		f(-x) &= 3(-x) - (-x)^3 \notag\\
+		f(-x) &= -3x + x^3 \notag\\
+		&= -(3x - x^3) \notag\\
+		&= -f(x) \notag
+	\end{align}
+	
+	Therefore, the function is odd.
+	\item $f(x) = \sqrt[3]{(1-x)^2} + \sqrt[3]{(1+x)^2}$\\
+	\textbf{Solution:}\\
+	
+	Let's check if the function is even by checking if $f(-x) = f(x)$\\
+	\begin{align}
+		f(x) &= \sqrt[3]{(1-x)^2} + \sqrt[3]{(1+x)^2} \notag\\
+		f(-x) &= \sqrt[3]{(1 - (-x))^2} + \sqrt[3]{(1 + (-x))^2} \notag\\
+		f(-x) &= \sqrt[3]{(1 + x)^2} + \sqrt[3]{(1 - x)^2} \notag\\
+		f(-x) &= f(x) \notag
+	\end{align}	
+	
+	
+	Therefore, the function is even.
+\end{enumerate}
+
+
+\item (\textbf{10 points}) What is the inverse of 
+
+\begin{equation}
+	y = \frac{ax + b}{cx + d} \; \; (ad - bc \neq 0)? \notag
+\end{equation}
+\textbf{Solution:}\\
+
+\begin{itemize}
+	\item Switch the x's for y's
+	\begin{align*}
+	\frac{ay - b}{cy + d} = x \notag\\
+	\end{align*}	
+	\item Multiply both sides by $cy+d$
+	\begin{align*}
+	\frac{ay - b}{cy + d} \times cy + d &= x  \times cy + d\notag\\
+	ay -b &= x(cy+d)\notag
+	\end{align*}
+	\item Expand the x through the paranthesis
+	\begin{align*}
+	ay-b = cxy + dx\notag
+	\end{align*}
+	\item Move y's to one side
+	\begin{align*}
+	ay-cxy = b + dx\notag
+	\end{align*}
+	\item Factor out the x
+	\begin{align*}
+	y(a - cx) = b + dx\notag
+	\end{align*}
+	\item Divide both sides by $a - cx$
+	\begin{align*}
+	y = \frac{b+dx}{a - cx}\notag
+	\end{align*}
+\end{itemize}
+
+The inverse is
+
+\begin{equation}
+	y = \frac{b + dx}{a - cx}\notag
+\end{equation}
+
+
+
+\item (\textbf{30 points}) Determine the domains and ranges of the following functions.
+
+\begin{enumerate}
+	\item $f(x) = \sqrt{7-x^2} + 1$\\
+	\textbf{Solution:}\\
+	
+\begin{itemize}
+	\item $D(f) = \{x \in \mathbb{R}| - \sqrt{7} \leq x \leq \sqrt{7}\}$ or in Interval-Notation: $[-\sqrt{7}, \sqrt{7}]$\\ 
+	\item $R(f) = \{ f \in \mathbb{R} | 1 \leq f \leq 1 + \sqrt{7}\}$ or in Interval-Notation: \\$[1, 1 + \sqrt{7}]$\\
+\end{itemize}	
+	
+	
+	\item $f(x) = \frac{x-5}{x^2-3x-10}$\\
+	\textbf{Solution:}\\
+	
+Trying to simplify the term:
+
+\begin{align*}
+	f(x) &= \frac{x-5}{x^2-3x-10}\notag\\
+	&= \frac{x-5}{(x-5)(x+2)}\notag\\
+	&= \frac{1}{x+2}\notag
+\end{align*}	
+	
+\begin{itemize}
+	\item $D(f) = \{x \in \mathbb{R}| x \neq -2\}$ or in Interval-Notation: $(-\infty,-2) \cup (-2, \infty)$\\ 
+	\item $R(f) = \{ f \in \mathbb{R} | f \neq 0\}$ or in Interval-Notation: \\$(-\infty,0) \cup (0,\infty)$\\
+\end{itemize}	
+	
+	
+	\item $f(x) = \frac{1}{|x|}$\\
+	\textbf{Solution:}\\
+	
+\begin{itemize}
+	\item $D(f) = \{x \in \mathbb{R}| x \neq 0\}$ or in Interval-Notation: $(-\infty,0) \cup (0, \infty)$\\ 
+	\item $R(f) = \{ f \in \mathbb{R} | f > 0\}$ or in Interval-Notation: \\$(0,\infty)$\\
+\end{itemize}	
+	
+	
+\end{enumerate}
+
+
+\item (\textbf{30 points}) Find the limits. (Hint: try to simplify as much as possible before applying the limit!)
+
+\begin{enumerate}
+	\item $\lim_{x \to 0} \frac{3(x-1)+3}{x}$\\
+	
+	\textbf{Solution:}\\
+	
+\begin{align*}
+	\lim_{x \to 0} \frac{3(x-1)+3}{x} &= \lim_{x \to 0} \frac{3x-3+3}{x}\notag\\
+	&= \lim_{x \to 0} \frac{3x}{x}\notag\\
+	&= 3\notag
+\end{align*}	
+	
+	\item $\lim_{x \to 2} \frac{x-2}{x^2+x-6}$\\
+	
+	\textbf{Solution:}\\
+	
+\begin{align*}
+	\lim_{x \to 2} \frac{x-2}{x^2+x-6} &= \lim_{x \to 2} \frac{x-2}{(x-2)(x+3)}\notag\\
+	&= \lim_{x \to 2} \frac{1}{x+3}\notag\\
+	&= \frac{1}{5}\notag
+\end{align*}		
+	
+	
+	\item $\lim_{x \to 1} \frac{x^2-4x+3}{x^2+x-2}$\\
+	
+	\textbf{Solution:}\\
+	
+\begin{align*}
+	\lim_{x \to 1} \frac{x^2-4x+3}{x^2+x-2} &= \lim_{x \to 1} \frac{(x-1)(x-3)}{(x-1)(x+2)}\notag\\
+	&= \lim_{x \to 1} \frac{x-3}{x+2}\notag\\
+	&= -\frac{2}{3}\notag
+\end{align*}	
+	
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

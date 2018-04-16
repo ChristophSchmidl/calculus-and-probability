@@ -1,0 +1,475 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{framed} 
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 4}
+\author{Christoph Schmidl\\
+s4226887\\
+Informatica\\
+c.schmidl@student.ru.nl\\}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+
+
+
+
+\textbf{After completing these exercises successfully you should be confident with the following topics:}
+
+\begin{itemize}
+	\item Analyse and sketch real functions
+	\item Apply differentiation rules to determine higher-order partial derivatives
+	\item find primitives of well-known functions
+	\item Compute definite integrals when the primitive function is known
+	\item computer impproper integrals
+\end{itemize}
+\vspace{1em}
+
+\begin{enumerate}
+
+
+%%%%%%%%%%%% Task 1 %%%%%%%%%%%%
+\item (\textbf{20 points}) Investigate the function $f(x) = \frac{e^x}{x+1}$ as follows. (Do not start with drawing a graph by means of a device or some web resource. Of couse you may check your result when you're done.)
+
+\begin{enumerate}
+	%%%%%%%% Task 1.a %%%%%%%%
+	\item Determine the domain of the function $f$.\\
+	\textbf{Solution:}\\
+	
+$D(f) = \{ x \in \mathbb{R} | c \neq -1\}$\\	
+	
+	
+	%%%%%%%% Task 1.b %%%%%%%%
+	\item What are the roots of $f$?\\
+	\textbf{Solution:}\\
+
+There are no roots (x-interceptions) because $e^x$ is never $0$.\\
+
+
+	%%%%%%%% Task 1.c %%%%%%%%
+	\item Determine the limits at the edges of the domain. (Hint: there are 4 cases, use L'Hoputial!)\\
+	\textbf{Solution:}\\
+	
+
+\textit{Vertical Asymptote:}	
+	
+For which value is $f(x)$ undefined?\\
+We just have to come up with a value for the denominator which produces a zero. So:	
+	
+\begin{align}
+x + 1 = 0\notag\\
+x = -1\notag
+\end{align}
+
+Because $f(x)$ is undefined for $-1$, the vertical asymptote can be found at $x = -1$ and we can inspect 4 limits, namely\\
+
+\begin{itemize}
+	\item $\lim_{x \to -\infty} \frac{e^x}{x + 1}$
+	\item $\lim_{x \to \infty} \frac{e^x}{x + 1}$
+	\item $\lim_{x \to -1^{-}} \frac{e^x}{x + 1}$
+	\item $\lim_{x \to -1^{+}} \frac{e^x}{x + 1}$
+\end{itemize}
+
+
+\begin{align}
+	\lim_{x \to -\infty} \frac{e^x}{x + 1} &= \lim_{x \to -\infty} \frac{\frac{d}{dx}(e^x)}{\frac{d}{dx}(x + 1)}\notag\\
+	&= \lim_{x \to -\infty} \frac{e^x}{1}\notag\\
+	&= \lim_{x \to -\infty} e^x \notag\\
+	&= 0\notag
+\end{align}
+
+\begin{align}
+	\lim_{x \to \infty} \frac{e^x}{x + 1} &= \lim_{x \to \infty} \frac{\frac{d}{dx}(e^x)}{\frac{d}{dx}(x + 1)}\notag\\
+	&= \lim_{x \to \infty} \frac{e^x}{1}\notag\\
+	&= \lim_{x \to \infty} e^x \notag\\
+	&= \infty\notag
+\end{align}
+
+\begin{align}
+	\lim_{x \to -1^{-}} \frac{e^x}{x + 1} &= - \infty\notag
+\end{align}
+
+\begin{align}
+	\lim_{x \to -1^{+}} \frac{e^x}{x + 1} &= \infty\notag
+\end{align}
+
+\newpage
+
+	%%%%%%%% Task 1.d %%%%%%%%
+	\item Find $f'$ and $f''$.\\
+	\textbf{Solution:}\\
+
+\begin{align}
+	f(x) &= \frac{e^x}{x + 1}\notag\\
+	f'(x) &= \frac{\left[(e^x)(x+1)\right] - \left[ e^x \cdot 1\right]}{(x+1)^2}\notag\\
+	&= \frac{xe^x}{(x+1)^2}\notag\\
+	f''(x) &= \frac{\left[ e^x(x+1) \cdot (x+1)^2\right] - \left[ xe^x \cdot (2x + 2) \right]}{(x+1)^4}\notag\\
+	&= \frac{\left[ e^x(x+1)^3\right] - 2e^xx^2 - 2e^xx}{(x+1)^4}\notag\\
+	&= \frac{e^xx^3 + 3e^xx^2 + 3e^xx + e^x - 2e^xx^2 - 2e^xx }{(x+1)^4}\notag\\
+	&= \frac{e^xx^3 + e^xx^2 + e^xx + e^x}{(x+1)^4}\notag\\
+	&= \frac{e^x(x^3 + x^2 + x + 1)}{(x+1)^4}\notag\\
+	&= \frac{e^x(x+1)(x^2+1)}{(x+1)^4}\notag\\
+	&= \frac{e^x(x^2 + 1)}{(x+1)^3}\notag
+\end{align}
+
+
+	
+	%%%%%%%% Task 1.e %%%%%%%%
+	\item Find the zeros of $f'$ and $f''$.\\
+	\textbf{Solution:}\\
+	
+Zeros of $f'(x)$:\\
+
+Because we are dealing with a quotient, we are just interested in the the case when the numerator becomes zero. When the denominator becomes zero, the function is undefined and is not a x-intercept. Therefore:\\
+
+\begin{align}
+	xe^x &= 0\notag\\
+	x &= \frac{0}{e^x}\notag\\
+	x &= 0\notag
+\end{align}	
+	
+Zeros of $f''(x)$:\\	
+
+\begin{align}
+	e^x(x^2+1) &= 0\notag\\
+	e^x &= \frac{0}{(x^2+1)}\notag\\
+	e^x &= 0\notag
+\end{align}	
+
+There are no solutions to this equation and therefore no zeros for $f''(x)$.\\
+	
+	
+	%%%%%%%% Task 1.f %%%%%%%%
+	\item What are the critical points (determine their $x$ and $y$ coordinates)?\\
+	\textbf{Solution:}\\
+	
+A critical point of a function $f: D \rightarrow \mathbb{R}$, is a point $a \in D$ such that $f'(a) = 0$. The value $f(a)$ is called a critical value of f.\\
+
+
+Determine critical points by plugging in the values where $f'(x) = 0$ into the original function\\
+
+
+
+\begin{align*}
+	\frac{e^0}{0+1} &= \frac{1}{1}\notag\\
+	&= 1\notag
+\end{align*}
+	
+Critical point 1: $(0,1)$\\	
+	
+	
+	
+	
+	%%%%%%%% Task 1.g %%%%%%%%
+	\item Find the local minimums and maximums.\\
+	\textbf{Solution:}\\
+	
+When a function's slope is zero at $x$, and the second derivative at $x$ is:
+
+\begin{itemize}
+	\item less than 0, it is a local maximum
+	\item greater than 0, it is a local minimum
+	\item equal to 0, then the test failes
+\end{itemize}
+
+Plugging-in the zeros of $f'$ into $f''(x)$:\\
+
+\begin{align*}
+	\frac{e^0(0^2 + 1)}{(0+1)^3} &= 1\notag\\
+\end{align*}
+
+Therefore, $(0,1)$ is a local minimum.\\	
+	
+	
+	
+	
+	%%%%%%%% Task 1.h %%%%%%%%
+	\item Which parts of the function are convex and concave? Does function $f$ have points of inflection? (Hint: Use the sign of the second derivative for answering both questions.)\\
+	\textbf{Solution:}\\
+	
+	%%%%%%%% Task 1.i %%%%%%%%
+	\item Draw the graph of function $f$. (If you collect all intervals and special points in a table, it helps a low in drawing the graph. Moreover, you get some extra points.)
+	\textbf{Solution:}\\	
+	
+	
+\end{enumerate}
+
+
+%%%%%%%%%%%% Task 2 %%%%%%%%%%%%
+\item (\textbf{bonus, +1 points}) Write your name, student number, and the name of your TA on the first page.
+
+
+%%%%%%%%%%%% Task 3 %%%%%%%%%%%%
+\item (\textbf{bonus, +4 points}) Consider the function $f(x) = e^x\sin(x)$.
+
+\begin{enumerate}
+	%%%%%%%% Task 3.a %%%%%%%%
+	\item Determine the domain of the function $f$.\\
+	\textbf{Solution:}\
+	
+\begin{align}
+	D(f) = \mathbb{R}\notag
+\end{align}	
+	
+	
+	%%%%%%%% Task 3.b %%%%%%%%
+	\item What are the roots of $f$? Where does the graph of $f$ intersect the $y$ axis?\\
+	\textbf{Solution:}\\	
+	
+We just have to come up with a value for $x$, where $\sin(x) = 0$. This value is $\pi$. And because $\sin$ is a periodic function, which repeats its x-intercept every $n$ steps, we can write:
+
+\begin{align}
+	e^x\sin(x) = 0 \notag\\
+	x = n \cdot \pi , n \in \mathbb{Z}\notag
+\end{align}	
+	
+	
+	%%%%%%%% Task 3.c %%%%%%%%
+	\item Find $f'$ and $f''$.\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	f'(x) &= e^x \cdot \sin(x) + e^x \cdot \cos(x)\notag\\
+	&= e^x(\sin(x) + \cos(x))\notag\\
+	f''(x) &= \left[ e^x\sin(x) + e^x\cos(x) \right] + \left[ e^x\cos(x) - e^x\sin(x) \right]\notag\\
+	&= 2e^x\cos(x)\notag
+\end{align}		
+	
+	
+	
+	
+	%%%%%%%% Task 3.d %%%%%%%%
+	\item Find all the zeros of $f'$ and $f''$.\\
+	\textbf{Solution:}\\
+	
+$f'(x) = 0$	
+		
+\begin{align}
+	e^x(\sin(x) + \cos(x)) &= 0\notag\\
+	x &= \pi \cdot n - \frac{\pi}{4}, n \in \mathbb{Z}\notag
+\end{align}				
+
+\newpage		
+		
+$f''(x) = 0$		
+
+\begin{align}
+	2e^x\cos(x) &= 0\notag\\
+	x &= \pi \cdot n - \frac{\pi}{2}, n \in \mathbb{Z}\notag
+\end{align}		
+		
+\end{enumerate}
+
+
+
+
+
+%%%%%%%%%%%% Task 4 %%%%%%%%%%%%
+\item (\textbf{20 points}) Given function $f$, find the partial derivatives. If it is necessary, simplify the result.
+
+\begin{enumerate}
+	%%%%%%%% Task 4.a.i %%%%%%%%
+	\item[a.i] $f(x,y) = \cos(4y - xy)$\\
+	\textbf{Solutions:}
+	
+	
+	
+	
+	
+	\begin{align}
+		\frac{\partial}{\partial x}f(x,y) = ((x-4)y'(x) + y)(-\sin((x-4)y))\notag
+	\end{align}
+	
+	\begin{align}
+		\frac{\partial}{\partial y}f(x,y) = -(x-4)\sin((x-4)y)\notag
+	\end{align}
+	
+	%%%%%%%% Task 4.a.ii %%%%%%%%%
+	\item[a.ii] $f(x,y) = e^\frac{x}{y}$\\
+	\textbf{Solutions:}
+	
+		\begin{align}
+		\frac{\partial}{\partial x}f(x,y) = \frac{e^\frac{x}{y}(y - xy'(x))}{y^2}\notag
+	\end{align}
+	
+	\begin{align}
+		\frac{\partial}{\partial y}f(x,y) = - \frac{xe^\frac{x}{y}}{y^2}\notag
+	\end{align}
+		
+		
+	%%%%%%%% Task 4.b %%%%%%%%%
+	\item[b] For the two functions above, show that $\frac{\partial}{\partial x}(\frac{\partial}{\partial y}f(x,y)) = \frac{\partial}{\partial y}(\frac{\partial}{\partial x}f(x,y))$\\
+	\textbf{Solutions:}		
+		
+		
+\end{enumerate}
+
+%%%%%%%%%%%% Task 5 %%%%%%%%%%%%
+\item (\textbf{20 points}) If $f(x,y) = \frac{xy}{x+y}$, show that
+
+\begin{align}
+x^2 \cdot \frac{\partial}{\partial x}(\frac{\partial}{\partial x}f(x,y)) + 2xy \cdot \frac{\partial}{\partial x}(\frac{\partial}{\partial y}f(x,y)) + y^2 \cdot \frac{\partial}{\partial y}(\frac{\partial}{\partial y}f(x,y)) = 0\notag
+\end{align}
+	(Hint: First compute all the second partial derivatives of $f$, then substitute the results in the expression on the left-hand side.)
+\textbf{Solutions:}		
+
+
+
+
+%%%%%%%%%%%% Task 6 %%%%%%%%%%%%
+\item (\textbf{20 points}) Evaluate the following definite integrals. (Hint: use slide 38 of the lectures about derivatives, and slide 13 of the lectures about primitives)
+
+\begin{align}
+	\int_{a}^b f(x) dx = F(b) - F(a)\notag
+\end{align}
+
+
+
+\begin{enumerate}
+	%%%%%%%% Task 6.a %%%%%%%%
+	\item $\int_{-1}^1(x^3 + x - 1)dx$\\
+	
+	\textbf{Solutions:}
+	
+\begin{align}
+	\int (x^3 + x - 1)dx &= \frac{1}{4}x^4 + \frac{1}{2}x^2 - x + C \notag\\
+	\int_{-1}^1(x^3 + x - 1)dx &= \left[ \frac{1}{4}1^4 + \frac{1}{2}1^2 - 1  \right] - \left[ \frac{1}{4}(-1)^4 + \frac{1}{2}(-1)^2 - (-1)\right]\notag\\
+	&= \frac{1}{4} - \frac{1}{2} - \frac{1}{4} - \frac{1}{2} - 1\notag\\
+	&= -2\notag
+\end{align}	
+	
+	
+	%%%%%%%% Task 6.b %%%%%%%%
+	\item $\int_{1}^2(3\sqrt{x} + \frac{3}{x^2})dx$\\
+	
+	\textbf{Solutions:}
+	
+\begin{align}
+	\int(3\sqrt{x} + \frac{3}{x^2})dx &= 3 \left[ \frac{2x^\frac{3}{2}}{3} - \frac{1}{x}\right] + C\notag\\
+	\int_{1}^2(3\sqrt{x} + \frac{3}{x^2})dx &= \left[ 3(\frac{2(2)^\frac{3}{2}}{3} - \frac{1}{2})\right] - \left[ 3(\frac{2(1)^\frac{3}{2}}{3} - 1) \right]\notag\\
+	&= 4\sqrt{2} - \frac{1}{2}\notag\\
+	&\approx 5.1569\notag
+\end{align}		
+	
+	
+	%%%%%%%% Task 6.c %%%%%%%%
+	\item $\int_{0}^\pi(\sin(x) + \cos(x))dx$\\
+	
+	\textbf{Solutions:}	
+
+\begin{align}
+	\int(\sin(x) + \cos(x))dx &= -\cos(x) + \sin(x) + C\notag\\
+	\int_{0}^\pi(\sin(x) + \cos(x))dx &= \left[ -\cos(\pi) + \sin(\pi))\right] - \left[ -\cos(0) + \sin(0)\right]\notag\\
+	&= 1 + 0 + 1 + 0\notag\\
+	&= 2\notag
+\end{align}		
+
+
+
+
+	%%%%%%%% Task 6.d %%%%%%%%
+	\item $\int_{-1}^1(\frac{-5}{\sqrt{1 - x^2}})dx$\\
+	
+	\textbf{Solutions:}	
+
+\begin{align}
+	\int(\frac{-5}{\sqrt{1 - x^2}})dx &= -5(\arcsin(x)) + C\notag\\
+	\int_{-1}^1(\frac{-5}{\sqrt{1 - x^2}}) &= \left[ -5(\arcsin(1)) \right] - \left[ -5(\arcsin(-1))\right]\notag\\
+	&= -5\frac{\pi}{2} - 5\frac{\pi}{2}\notag\\
+	&= -5\pi\notag
+\end{align}	
+
+
+
+\end{enumerate}
+
+
+%%%%%%%%%%%% Task 7 %%%%%%%%%%%%
+\item (\textbf{20 points}) Evaluate the following improper integrals.
+
+\begin{enumerate}
+	%%%%%%%% Task 7.a %%%%%%%%
+	\item $\int_{1}^\infty (\frac{1}{x^n})dx$, $n$ an integer such that $n \geq 2$; (Hint: this generalizes an example solved in the lecture on slide 8).\\
+	\textbf{Solutions:}	
+	
+	
+	
+	
+	%%%%%%%% Task 7.b %%%%%%%%
+	\item $\int_{-\infty}^{-\pi/2}\frac{x \cos(x) - \sin(x)}{x^2}dx$; (Hint: use the quotient rule for derivation to find the primitive)\\
+	\textbf{Solutions:}	
+
+\begin{align}
+	\int(\frac{x \cos(x) - \sin(x)}{x^2})dx &= \frac{\sin(x)}{x} + C\notag\\
+	\int_{-\infty}^{-\pi/2}(\frac{x \cos(x) - \sin(x)}{x^2})dx &= \frac{2}{\pi}\notag
+\end{align}	
+
+
+	%%%%%%%% Task 7.c %%%%%%%%
+	\item $\int_{2}^{\infty}\frac{-1}{x \ln^2(x)} dx$; (Hint: use a fraction of well known functions to find the primitive)\\
+	\textbf{Solutions:}	
+	
+\begin{align}
+	\int(\frac{-1}{x \ln^2(x)})dx &= \frac{1}{\ln(x)} + C\notag\\
+\int_{2}^{\infty}(\frac{-1}{x \ln^2(x)}) dx &= \frac{1}{\ln(2)}\notag
+\end{align}	
+
+
+\end{enumerate}
+
+
+%%%%%%%%%%%% Task 8 %%%%%%%%%%%%
+\item (\textbf{bonus, +4 points}) Find primitves of the following functions $f$. That is, find $F$ such that $F'(x) = f(x)$.
+
+\begin{enumerate}
+	%%%%%%%% Task 8.a %%%%%%%%
+	\item $f(x) = \frac{1}{2 \sqrt{x}} - \frac{1}{x^2}$\\
+	\textbf{Solutions:}		
+	
+\begin{align}
+	\int(\frac{1}{2 \sqrt{x}} - \frac{1}{x^2})dx &= \sqrt{x} + \frac{1}{x} + C\notag
+\end{align}		
+	
+	
+	
+	
+	%%%%%%%% Task 8.b %%%%%%%%
+	\item $f(x) = 2 \sin(x) \cos(x)$\\
+	\textbf{Solutions:}	
+	
+\begin{align}
+	\int(2 \sin(x) \cos(x))dx &= - \frac{1}{2} \cos(2x) + C\notag
+\end{align}		
+	
+	
+	%%%%%%%% Task 8.c %%%%%%%%
+	\item $f(x) = \frac{2}{1 + 4x^2}$\\
+	\textbf{Solutions:}		
+	
+\begin{align}
+	\int(\frac{2}{1 + 4x^2})dx &= \arctan(2x) + C\notag
+\end{align}			
+
+
+	%%%%%%%% Task 8.d %%%%%%%%
+	\item $f(x) = \frac{1 - \ln(x)}{x^2}$\\
+	\textbf{Solutions:}		
+	
+\begin{align}
+	\int(\frac{1 - \ln(x)}{x^2})dx &= \frac{\ln(x)}{x} + C\notag
+\end{align}			
+	
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

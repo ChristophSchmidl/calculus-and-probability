@@ -1,0 +1,463 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[hyphens]{url}
+\usepackage{titling}
+\usepackage{varwidth}
+\usepackage{hyperref}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage{multicol}
+\usepackage{pbox}
+
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+
+
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={165mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\title{Calculus and Probability Theory\\Lecture Notes}
+\author{Christoph Schmidl\\
+s4226887\\
+c.schmidl@student.ru.nl}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+
+\subsection*{General Information}
+
+\begin{itemize}
+	\item Teachers 
+		\begin{itemize}
+			\item Perry Groot
+		\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+	\item Grading 
+		\begin{itemize}
+			\item Exam: 5. April, 12:30 - 15:30, HG00.304, HG00.062
+			\item Condition: at least five sufficient homework assignments
+			\item Final mark: the result of the written exam
+		\end{itemize}
+\end{itemize}
+
+
+
+
+\subsection*{Lecture I}
+
+\begin{itemize}
+	\item Foundations
+	\item Limits and continuous functions
+	\item Derivatives
+\end{itemize}
+
+\textbf{Foundations}\\
+
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Functions (domain, codomain, range)}\\
+
+A \textbf{real function} $f: D \rightarrow \mathbb{R}$, for $D \subseteq \mathbb{R}$, is a rule which assignes to each $x \in D$ precisely one $f(x) \in \mathbb{R}$.
+
+\begin{itemize}
+	\item In this situation the subset $D \subseteq \mathbb{R}$ is called the \textbf{domain} of f. Sometimes we write D(f) for D.
+	\item $\mathbb{R}$ is the \textbf{codomain} of f, and the subset $R(f) = \{ f(x) | x \in D \} \subseteq \mathbb{R}$ is called the \textbf{range} of f.
+\end{itemize}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: injective, surjective, bijective, isomorphism}\\
+
+A function $f : D \rightarrow \mathbb{R}$ is \textbf{injective} or \textbf{one-to-one} if $f(x) = f(y)$ implies $x = y$, for all $x,y \in D$\\A function $f : D \rightarrow R(\subseteq \mathbb{R})$ is \textbf{surjective} or \textbf{onto} if its range is equal to its codomain
+
+\begin{itemize}
+	\item This means: for any $y \in R$ there is an $x \in D$ such that $f(x) = y$. Symbolically: $\forall y \in R \; \exists x \in D \; f(x) = y.$
+\end{itemize}
+
+A function $f : D \rightarrow R$ is \textbf{bijective} if it is both injective and surjective. Then it is an \textbf{isomorphism} $f : D \xrightarrow{\cong} R$
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Graph of a real function}\\
+
+For a function $f : D \rightarrow \mathbb{R}$, the \textbf{graph} $G(f) \subseteq D \times \mathbb{R}$ of f contains all pairs $(x,f(x))$. So, we write: $G(f) = \{ (x,f(x)) \; | \; x \in D \}$.
+}}
+\newpage
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Inverse and composition}\\
+
+If a function $f : D \rightarrow \mathbb{R}$, is \textbf{injective}, we can define an \textbf{inverse} function $f^{-1} : R(f) \rightarrow D \subseteq \mathbb{R}$, namely:
+
+\begin{itemize}
+	\item for $y \in R(f)$, say $y = f(x)$, define $f^{-1}(y) = x$
+	\item this x is uniquely determined: if $f(x) = y = f(x')$, then $x = x'$, since f is \textbf{injective}
+	\item by construction: $f(f^{-1}(y)) = y$ and also $f^{-1}(f(x)) = x$.
+\end{itemize}
+
+The \textbf{composition} of $f : X \rightarrow Y$ and $g : Y \rightarrow Z$ is $h = g \circ f : X \rightarrow Z$, for which $h(x) = g(f(x))$, for each $x \in X$.
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Parity of a function}\\
+
+A function $f : (-a,a) \rightarrow \mathbb{R}$ is \textbf{even} if $f(-x) = f(x)$, for all $x \in (-a,a)$, and \textbf{odd} if $f(-x) = -f(x)$, for all $x \in (-a,a)$.
+}}\vspace{1em}
+
+\textbf{Limits and continuous functions}\\
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Approach to limit}\\
+
+A function f approaches the limit b at an input a, if we can make $f(x)$ as close as we like to b by requiring that x be sufficiently close, but not equal to a.
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Limit}\\
+
+A function $f : D \rightarrow \mathbb{R}$ has \textbf{limit} b for $x \rightarrow a$ if:
+
+\begin{equation}
+	\forall \epsilon > 0 \exists \delta > 0 \forall x \in D \qquad 0 < |x - a| < \delta \Rightarrow |f(x) - b| < \epsilon \notag
+\end{equation}
+
+In that case we write $\lim_{x \to a}f(x) = b$. \textit{the limit of f of x as x approaches a equals b}. Note. a does not have to be in D.\\
+
+Example:
+
+\begin{equation}
+	\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = 	\lim_{x \to 3} \frac{(x-3)(x+3)}{x - 3} = 	\lim_{x \to 3} (x + 3) = 6 \notag
+\end{equation}
+\begin{equation}
+	\lim_{x \to 1} \frac{-1}{x -1} \text{is undefined} \notag
+\end{equation}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Computation of Limits}\\
+
+Let $c$ be a constant, $a$ a real number, and assume that $\lim_{x \to a}f(x)$ and $\lim_{x \to a}g(x)$ both exist and are equal to $L_1$ and $L_2$
+
+\begin{itemize}
+	\item $\lim_{x \to a} c = c$
+	\item $\lim_{x \to a} x = a$
+	\item $\lim_{x \to a} [c \cdot f(x)] = c \cdot \lim_{x \to a}f(x) = c \cdot L_1$
+	\item $\lim_{x \to a}[f(x) \pm g(x)] = \lim_{x \to a}f(x) \pm \lim_{x \to a}g(x) = L_1 \pm L_2$
+	\item $\lim_{x \to a}[f(x) \cdot g(x)] = \lim_{x \to a}f(x) \cdot \lim_{x \to a}g(x) = L_1 \cdot L_2$
+	\item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a}f(x)}{\lim_{x \to a}g(x)} = \frac{L_1}{L_2}$ (if $L_2 \neq 0$)
+\end{itemize}
+
+}}
+\newpage
+
+\fbox{\parbox{\textwidth}{\textit{Computation of Limits}\\
+
+Let $p(x) = c_nx^n + c_{n-1}x^{n-1} + ... + c_1x + c_0$ be a polynomial, $a$ a real number and $\lim{x \to a}g(x)$ both exist and are equal to $L_1$ and $L_2$
+
+\begin{itemize}
+	\item $\lim_{x \to a} p(x) = p(a)$
+	\item $\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a}f(x)} = \sqrt[n]{L_1}$
+	\item $\lim_{x \to a}\sin(x) = \sin(a)$
+	\item $\lim_{x \to a}\cos(x) = \cos(a)$
+\end{itemize}
+
+Let $f(x) \leq g(x) \leq h(x)$ for all x on some interval (c,d), except maybe for $a \in (c,d)$. If
+
+\begin{equation}
+	\lim_{x \to a}f(x) = \lim_{x \to a}h(x) = L \notag
+\end{equation}
+
+Then 
+
+\begin{equation}
+	\lim_{x \to a}g(x) = L \notag
+\end{equation}
+
+Example:
+
+$\lim_{x \to 0}[x^2 \cos(\frac{1}{x})] = 0$, Since $-1 \leq \cos(\frac{1}{x}) \leq 1$ we have $-x^2 \leq x^2 \cos(\frac{1}{x}) \leq x^2$ and since $\lim_{x \to 0}-x^2 = \lim_{x \to 0}x^2 = 0$. Note that the rule for products fails.
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Limits involving infinity}\\
+
+A function $f : D \rightarrow \mathbb{R}$ has \textbf{limit} b for $x \rightarrow \infty$ if:
+
+\begin{equation}
+	\forall \epsilon > 0 \exists n \in \mathbb{N} \forall x \in D \; x > n \Rightarrow |f(x) - b| < \epsilon \notag
+\end{equation}
+
+In that case we write $\lim_{x \to \infty}f(x) = b$. Formulate yourself what $\lim_{x \to -\infty}f(x) = b$ means.\\
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Continuous functions}\\
+
+A function $f : D \rightarrow \mathbb{R}$ is continuous in a point $a \in D$ if $f(x)$ is close to $f(a)$ for each x that is close to a.\\
+More formally: $f : D \rightarrow \mathbb{R}$ is \textbf{continuous in point $a \in D$} if:
+
+\begin{equation}
+	\forall \epsilon > 0 \exists \delta > 0 \forall x \in D \; |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon \notag
+\end{equation}
+
+A function $f : D \rightarrow \mathbb{R}$ is \textbf{continuous} if it is continuous in all $a \in D$.
+}}\vspace{1em}
+
+\newpage
+
+\textbf{Derivatives}\\
+
+\fbox{\parbox{\textwidth}{\textit{Recall: Points and lines}\\
+
+\begin{itemize}
+	\item Equation of a line
+		\begin{itemize}
+			\item y-intercept (b), \textbf{slope} (m)
+			\item most convenient: $y = mx + b$
+			\item can be determined from e.g., two points, or a point and the slope
+		\end{itemize}
+	\item Distance of two points $(x_1, y_1)$ and $(x_2,y_2)$
+		\begin{itemize}
+			\item by Pythagorean theorem
+			\item $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
+		\end{itemize}
+	\item Sample Questions
+		\begin{itemize}
+			\item What is the intercept and the slope: $3x - 4y = -8$?
+			\item Determine the distance of points $(2,-3)$ and $(-3,9)$
+			\item Equation of the line? Slope: $m = \frac{2}{5}$, a point on it: $(-1,2)$	
+		\end{itemize}						
+\end{itemize}
+
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Derivatives (differentiable, tangent line)}\\
+
+A function $f : D \rightarrow \mathbb{R}$ is \textbf{differentiable at a} if $\lim_{h \to 0}(\frac{f(a+h)-f(a)}{h})$ exists. In this case the limit is denoted $f'(a)$ and is called the \textbf{derivative of f at a}.\\
+$f$ is \textbf{differentiable} if $f$ is differentiable at $a$ for every $a \in D$.\\
+We also define the \textbf{tangent line} to $f$ at $a$ to be the line through $(a,f(a)) \in G(f)$ with slope $f'(a)$.\\
+If $f$ is a differentiable function then $f'$ ("Lagrange notation") is sometimes written as $\frac{df}{dx}$ ("Leibniz notation").\\
+
+Example:
+
+\begin{itemize}
+	\item (Geometric interpretation) Find a tangent line of a curve $f(x) = \frac{1}{x}$ in $a = 2$
+	\item Check that $f(x) = |x|$ is not differentiable in 0.
+\end{itemize}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Differentiation rules}\\
+
+Let $f,g : D \rightarrow \mathbb{R}$ be differentiable functions in $a \in D$
+
+\begin{itemize}
+	\item For a \textbf{constant function} $f(x) = c, c \in \mathbb{R}$, we have $f'(x) = 0$
+	\item $f(x) = x$, then $f'(x) = 1$
+	\item \textbf{sum/subtraction rule} $(f \pm g)'(a) = f'(a) \pm g'(a)$
+	\item \textbf{scalar rule} $(c \cdot f)'(a) = c \cdot f'(a)$
+	\item \textbf{product rule} $(f \cdot g)'(a) = f'(a) \cdot g(a) + f(a) \cdot g'(a)$
+	\item \textbf{division rule} $(\frac{f}{g})'(a) = \frac{f'(a)g(a) - f(a)g'(a)}{g^2(a)}$
+	\item \textbf{chain/composition rule} $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$
+	\item if $f$ has an inverse $f^{-1}$, then $(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}$
+\end{itemize}
+
+}}
+\newpage
+
+\fbox{\parbox{\textwidth}{\textit{Lemma: Derivatives of powers}\\
+
+\begin{itemize}
+	\item For $n \in \mathbb{N}$ and $f(x) = x^n$ we have $f'(x) = nx^{n-1}$. This can be shown by induction on n
+	\item In fact, for $n \in \mathbb{Z}$ and $f(x) = x^n$ we have $f'(x) = nx^{n-1}$. This follows from the previous point, using the division rule.
+	\item It can be shown that $(x^a)' = ax^{a-1}$, for any $a \in \mathbb{R}$
+\end{itemize}
+
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Recall: exponential and logarithm}\\
+
+\textbf{Exponential}, for $a \geq 0$
+
+\begin{itemize}
+	\item $a^0 = 1, a^{x+y} = a^x \cdot a^y$
+	\item $a^1 = a, a^{x \cdot y} = (a^x)^y$
+	\item $a^{-x} = \frac{1}{a^x}$, and thus $a^{x-y} = \frac{a^x}{a^y}$
+\end{itemize}
+
+The logarithm is defined as inverse of power: $x = \log_a(y) \Longleftrightarrow a^x = y,$ for $y > 0$\\
+
+\textbf{Logarithm}
+
+\begin{itemize}
+	\item $\log_a(a^x) = x$ and $a^{\log_ax} = x$
+	\item $log_a(x \cdot y) = \log_a(x) + \log_a(y)$, and $log_a(x^y) = y \cdot \log_a(x)$
+	\item $\log_a(\frac{x}{y}) = \log_a(x) - \log_a(y)$
+	\item $\frac{\log_ax}{\log_ab} = \log_bx$
+\end{itemize}
+
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Euler's number $e$}\\
+
+Consider $f_a(x) = a^x$. Then:
+
+\begin{align*}
+	f'_a(x) = (a^x)' &= \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} = \lim_{h \to 0} \frac{a^x(a^h - 1)}{h}\\
+	&= a^x \cdot \lim_{h \to 0} \frac{a^{0 + h} - a^0}{h} = a^x \cdot \lim_{x \to 0} \frac{f_a(0 + h) - f_a(0)}{h}\\
+	&= a^x \cdot f'_a(0)
+\end{align*}
+
+\begin{itemize}
+	\item We have $f'_a(0) = 1$ for $a = e = 2.71828...$
+	\item and thus $(e^x)' = e^x$
+	\item The \textbf{natural logarithm} $\ln$ uses base $e$; notation: $\ln \equiv \log_e$
+\end{itemize}
+}}
+
+\newpage
+
+\fbox{\parbox{\textwidth}{\textit{Important derivatives with logarithms}\\
+
+\begin{itemize}
+	\item $(a^x)' = a^x \cdot \ln(a)$
+	\item $(\ln(y))' = \frac{1}{y}$
+	\item We have $(e^{f(x)})' = e^{f(x)} \cdot f'(x)$ by the chain rule
+	\item Thus: $(a^x)' = a^x \cdot \ln(a)$, since\\
+	$(a^x)' = ((e^{\ln(a)})^x)' = (e^{\ln(a) \cdot x})' = e^{\ln(a) \cdot x} \cdot \ln(a) = a^x \cdot \ln(a)$
+	\item For $f(x) = e^x$ we have $f'(x) = e^x$ and $f^{-1}(y) = \ln y$
+	\item We use the inverse function law $(f^{-1})'(y) = \frac{1}{f'(f^{-1(y)})}$
+	\item Thus $\ln'(y) = \frac{1}{f'(\ln y)} = \frac{1}{e^{\ln y}} = \frac{1}{y}$
+\end{itemize}
+
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Definition: Logarithmic differentiation}\\
+
+According to the chain rule:
+\begin{equation}
+	(\ln f(x))' = \ln'(f(x)) \cdot f'(x) = \frac{1}{f(x)} \cdot f'(x) = \frac{f'(x)}{f(x)} \notag
+\end{equation}
+
+Briefly: $(\ln f)' = \frac{f'}{f}$. This is called the \textbf{logarithmic derivative of f} and this law is called \textbf{logarithmic differentiation}.\\
+
+Example:\\
+
+For $f(x) = \frac{6x}{\sqrt{x - 1}}$ we can compute $f'(x)$ via the fraction rule, but also first taking logarithms on both sides:
+
+\begin{equation}
+	\ln(f(x)) = \ln(\frac{6x}{\sqrt{x - 1}}) = \ln(6x) - \ln((x - 1)^\frac{1}{2}) = \ln(6x) - \frac{1}{2} \ln(x - 1) \notag
+\end{equation}
+
+Differentiating on both sides gives:
+
+\begin{equation}
+	\frac{f'(x)}{f(x)} = \frac{6}{6x} - \frac{1}{2} \cdot \frac{1}{x - 1} = \frac{1}{x} - \frac{1}{2(x-1)} = \frac{2(x-1)-x}{2x(x-1)} = \frac{x - 2}{2x(x - 1)} \notag
+\end{equation}
+
+Hence:
+
+\begin{equation}
+	f'(x) = f(x) \cdot \frac{x - 2}{2x(x - 1)} = \frac{6x}{\sqrt{x - 1}} \cdot \frac{x - 2}{2x(x - 1)} = \frac{3(x - 2)}{(x - 1)^\frac{3}{2}} \notag
+\end{equation}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Recall: sine, cosine and tangent}\\
+
+\begin{itemize}
+	\item Geometric interpretation with $\sin(90^\circ) = \sin(\frac{\pi}{2}) = 1$
+	\item $\sin^2(x) + \cos^2(x) = 1$
+	\item Sum rules:
+		\begin{itemize}
+			\item[*] $\sin(x + y) = \sin(x)\cos(y) + \cos(x)\sin(y)$
+			\item[*] $\cos(x + y) = \cos(x)\cos(y) - \sin(x)\sin(y)$
+			\item[*] $\sin(x - y) = \sin(x)\cos(y) - \cos(x)\sin(y)$
+			\item[*] $\cos(x - y) = \cos(x)\cos(y) + \sin(x)\sin(y)$
+		\end{itemize}
+	\item $\sin'(x) = \cos(x)$ and $\cos'(x) = - \sin(x)$
+	\item $\tan(x) = \frac{\sin(x)}{\cos(x)}$, with $\tan'(x) = \frac{1}{\cos^2(x)}$	
+\end{itemize}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Logarithmic differentation Example}\\
+
+Logarithmic differentation is useful for reducing products to sum, fractions to differences, and powers to products.\\
+Take $f(x) = (\sin(x))^x$
+
+\begin{equation}
+	\ln f(x) = \ln((\sin x)^x) = x \cdot \ln(\sin(x)) \notag
+\end{equation}
+
+Thus:
+
+\begin{equation}
+	\frac{f'(x)}{f(x)} = \ln(\sin x) + x \cdot \frac{1}{\sin x} \cdot \cos x \notag
+\end{equation}
+
+And:
+
+\begin{equation}
+	f'(x) = f(x) \cdot (\ln(\sin x) + \frac{x \cos x}{\sin x}) = (\sin x)^x (\ln(\sin x) + \frac{x \cos x}{\sin x}). \notag
+\end{equation}
+
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{Derivatives of special functions}\\
+
+\begin{itemize}
+	\item $f(x) = a^x$ then $f'(x) = a^x \cdot \ln a$. Special case $(e^x)' = e^x$
+	\item $(\log_ax)' = \frac{1}{x \cdot \ln a}$ with special case $(\ln x)' = \frac{1}{x}$
+	\item $(\sin x)' = \cos x$
+	\item $(\cos x)' = - \sin x$
+	\item $(\tan x)' = \frac{1}{\cos^2 x}$ where $\tan x = \frac{\sin x}{\cos x}$
+	\item $(\arcsin x)' = \frac{1}{\sqrt{1 - x^2}}$ where $\arcsin = \sin^{-1}$
+	\item $(\arccos x)' = \frac{-1}{\sqrt{1 - x^2}}$ where $\arccos = \cos^{-1}$
+	\item $(\arctan x)' = \frac{1}{1 + x^2}$ where $\arctan = \tan^{-1}$
+\end{itemize}
+}}\vspace{1em}
+
+\fbox{\parbox{\textwidth}{\textit{L'Hopital’s rule}\\
+
+Let $f,g : D \rightarrow \mathbb{R}$ be functions that are differentiable and
+
+\begin{itemize}
+	\item $\lim_{x \to a}f(x) = \lim_{x \to a}g(x) = \pm \infty$ or $\lim_{x \to a}f(x) = \lim_{x \to a}g(x) = 0$, moreover
+	\item $\lim_{x \to a} \frac{f'(x)}{g'(x)}$ exists with
+	\item $g'(x) \neq 0$ (except for perhaps at a), then
+	\item $\lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f'(x)}{g'(x)}$
+\end{itemize}
+
+Example:
+
+\begin{itemize}
+	\item $\lim_{x \to 0} \frac{\sin(x)}{x} = \lim_{x \to 0} \frac{\cos(x)}{1} = \cos(0) = 1$
+	\item $\lim_{x \to \infty} \frac{\ln(x)}{\sqrt{x}} = \lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{2\sqrt{x}}} = \lim_{x \to \infty}\frac{2\sqrt{x}}{x} = \lim_{x \to \infty} \frac{2}{\sqrt{x}} = 0$
+	\item $\lim_{x \to 0}\frac{1 - \cos(x)}{x^2} = \lim_{x \to 0}\frac{\sin(x)}{2x} = \lim_{x \to 0}\frac{\cos(x)}{2} = \frac{1}{2}$
+\end{itemize}
+}}\vspace{1em}
+
+
+\fbox{\parbox{\textwidth}{\textit{Higher order derivatives}\\
+
+Let $f(x)$ be a real function.
+
+\begin{itemize}
+	\item One writes $f' = \frac{df}{dx}$
+	\item The second derivative is written as: $f'' = \frac{d}{dx}f' = \frac{d^2f}{dx^2}$
+	\item The n-th derivative is: $f^{(n)} = \frac{d}{dx}f^{n - 1}$ with $f^{(0)} = f$
+\end{itemize}
+
+Example: Let $f(x) = x^n$, find $f^{(n)}(x)$
+}}
+
+\end{document}

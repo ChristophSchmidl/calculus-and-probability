@@ -1,0 +1,252 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 2}
+\author{Christoph Schmidl\\
+s4226887\\
+Informatica\\
+c.schmidl@student.ru.nl\\
+Exercise Teacher: Gergely Alp\'{a}r}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item (\textbf{18 points}) Given a function $f$ and $a \in D(f)$. Recall that the definition of the \textit{derivative} of a function $f$ at $a$ is 
+
+\begin{equation}
+	f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \notag
+\end{equation}
+
+This is the slope of function $f$ at point $(a, f(a))$. Compute the derivative of the function at the given $a$ using the definition.
+
+\begin{enumerate}
+	\item[(a)] $3x^2$ at point $a = -\frac{1}{2}$\\
+	\textbf{Solution:}\\
+	
+	
+\begin{align*}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\\
+	&= \lim_{h \to 0} \frac{3(a + h)^2 - 3a^2}{h}\\
+	&= \lim_{h \to 0} \frac{3(-\frac{1}{2} + h)^2 - 3(-\frac{1}{2})^2}{h}\\
+	&= \lim_{h \to 0} \frac{3(-\frac{1}{2} + h)^2 - \frac{3}{4}}{h}\\
+	&= \lim_{h \to 0} 3h - 3\\
+	&= -3
+\end{align*}
+	
+	
+	\item[(b)] $\frac{1}{x + 2}$ at point $a = 1$\\
+	\textbf{Solution:}\\
+	
+\begin{align*}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\\
+	&= \lim_{h \to 0} \frac{\frac{1}{(a + h) + 2} - \frac{1}{a + 2}}{h}\\
+	&= \lim_{h \to 0} \frac{\frac{1}{(1 + h) + 2} - \frac{1}{1 + 2}}{h}\\
+	&= \lim_{h \to 0} \frac{\frac{1}{h + 3} - \frac{1}{3}}{h}\\
+	&= \lim_{h \to 0} -\frac{1}{3h + 9}\\
+	&= - \frac{1}{9}
+\end{align*}	
+	
+	
+	
+	\item[(c)] $sin \, 2x$ at point $a = 0$ (Hint: Use the fact the $\lim_{x \to 0} \frac{sin \, x}{x} = 1$)\\
+	\textbf{Solution:}\\	
+	
+	
+\end{enumerate}
+
+	
+	\item (\textbf{50 points}) Find the derivative of the following functions. You can freely use all the differentiation rules that were discussed on the lecture. If it is possible, simplify the result.\\
+	
+	\begin{enumerate}
+		\item[(a)] $f(x) = x^5 + 5x^4 - 10x^2 + 6$\\
+		\textbf{Solution:}\\
+		
+Plus/Minus rule: $(f \pm g)'(a) = f'(a) \pm g'(a)$\\
+Derivative of power rule: $f(x) = x^n \rightarrow f'(x) = nx^{n-1}$\\
+
+\begin{align*}
+\frac{d}{dx}(x^5 + 5x^4 - 10x^2 + 6) &= \frac{d}{dx}(x^5) + \frac{d}{dx}(5x^4) - \frac{d}{dx}(10x^2) + \frac{d}{dx}(6)\\
+&= 5x^4 + 20x^3 - 20x
+\end{align*}
+
+
+
+		\item[(b)] $f(x) = 5x^\frac{1}{2} - x^\frac{3}{2} + 2x^{-\frac{1}{2}}$\\
+		\textbf{Solution:}\\	
+		
+Plus/Minus rule: $(f \pm g)'(a) = f'(a) \pm g'(a)$\\
+Derivative of power rule: $f(x) = x^n \rightarrow f'(x) = nx^{n-1}$\\
+
+\begin{align*}
+\frac{d}{dx}(5x^\frac{1}{2} - x^\frac{3}{2} + 2x^{-\frac{1}{2}}) &= \frac{d}{dx}(5x^\frac{1}{2}) - \frac{d}{dx}(x^\frac{3}{2}) + \frac{d}{dx}(2x^{-\frac{1}{2}})\\
+&= \frac{5}{2}x^{-\frac{1}{2}} - \frac{3}{2}x^\frac{1}{2} - x^{-\frac{3}{2}}\\
+&= \frac{5}{2}\frac{1}{\sqrt{x}} - \frac{3}{2} \sqrt{x} - x^{-\frac{3}{2}}\\
+&= \frac{5}{2\sqrt{x}} - \frac{3\sqrt{x}}{2} - \frac{1}{x^\frac{3}{2}}
+\end{align*}
+		
+		
+			
+		
+		\item[(c)] $f(t) = \frac{1}{2t^2} + \frac{4}{\sqrt{t}}$\\
+		\textbf{Solution:}\\
+		
+Plus/Minus rule: $(f \pm g)'(a) = f'(a) \pm g'(a)$\\		
+Derivative of power rule: $f(x) = x^n \rightarrow f'(x) = nx^{n-1}$\\	
+
+\begin{align*}
+\frac{d}{dx}(\frac{1}{2t^2} + \frac{4}{\sqrt{t}}) &= \frac{d}{dx}(\frac{1}{2t^2}) + \frac{d}{dx}(\frac{4}{\sqrt{t}})\\
+&= \frac{1}{2}(\frac{d}{dx}(\frac{1}{t^2})) + 4(\frac{d}{dx}(\frac{1}{\sqrt{t}}))\\
+&= \frac{1}{2}(\frac{d}{dx}(t^{-2})) + 4(\frac{d}{dx}(t^{-\frac{1}{2}}))\\
+&= \frac{1}{2} \cdot (-2t^{-3}) + 4 \cdot (-\frac{1}{2}t^{-\frac{3}{2}})\\
+&= -1t^{-3} - 2 t^{-\frac{3}{2}}\\
+&= -\frac{1}{t^3} - \frac{2}{t^{\frac{3}{2}}}
+\end{align*}		
+		
+		\item[(d)] $y = (1 - 4x)^5$\\
+		\textbf{Solution:}\\
+		
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\
+
+\begin{align*}
+\frac{d}{dx}((1 - 4x)^5) &= 5(1-4x)^4 \cdot \frac{d}{dx}(1-4x)\\
+&= 5(1-4x)^4 \cdot (-4)\\
+&= -20(1-4x)^4
+\end{align*}			
+		
+		
+		
+		\item[(e)] $f(x) = (x + 1)(x + 2)$\\
+		\textbf{Solution:}\\
+
+Multiplication rule: $(f \cdot g)'(a) = f'(a) \cdot g(a) + f(a) \cdot g'(a)$
+
+\begin{align*}
+\frac{d}{dx}((x+1)(x+2)) &= \frac{d}{dx}(x+1) \cdot (x+2) + (x+1) \cdot \frac{d}{dx}(x+2)\\
+&= 1 \cdot (x+2) + (x+1) \cdot 1\\
+&= 2x + 3
+\end{align*}	
+		
+		\item[(f)] $f(x) = \frac{3x + 1}{2x + 4}$\\
+		\textbf{Solution:}\\
+		
+Division rule:	$(\frac{f}{g}'(a)) = \frac{f'(a)g(a) - f(a)g'(a)}{g^2(a)}$	
+		
+\begin{align*}
+\frac{d}{dx}(\frac{3x + 1}{2x + 4}) &= \frac{\frac{d}{dx}(3x +1) \cdot (2x+4) - (3x+1) \cdot \frac{d}{dx}(2x + 4)}{(2x+4)^2}\\
+&= \frac{3(2x+4) - 2(3x + 1)}{(2x+4)^2}\\
+&= \frac{6x + 12 - 6x - 2}{(2x+4)^2}\\
+&= \frac{10}{4x^2 + 16x + 16}\\
+&= \frac{5}{2x^2 + 8x + 8}
+\end{align*}			
+		
+		\item[(g)] $f(x) = (\frac{x^2 - 1}{2x^3 + 1})^4$\\
+		\textbf{Solution:}\\
+	
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\	
+Division rule:	$(\frac{f}{g}'(a)) = \frac{f'(a)g(a) - f(a)g'(a)}{g^2(a)}$
+
+\begin{align*}
+\frac{d}{dx}((\frac{x^2 - 1}{2x^3 + 1})^4) &= 4(\frac{x^2 - 1}{2x^3 + 1})^3 \cdot \frac{d}{dx}(\frac{x^2 - 1}{2x^3 + 1})\\
+&= 4(\frac{x^2 - 1}{2x^3 + 1})^3 \cdot \frac{\frac{d}{dx}(x^2-1) \cdot (2x^3 + 1) - (x^2-1) \cdot \frac{d}{dx}(2x^3+1)}{(2x^3 + 1)^2}\\
+&= 4(\frac{x^2 - 1}{2x^3 + 1})^3 \cdot \frac{2x(2x^3+1) - 6x^2(x^2 - 1)}{(2x^3 + 1)^2}\\
+&= \frac{4(x - 1)^3 (x+1)^3}{(2x^3 + 1)^3} \cdot \frac{2x(2x^3+1) - 6x^2(x^2 - 1)}{(2x^3 + 1)^2}\\
+&= \frac{8x(x^2 - 1)^3 \cdot (x^3 - 3x - 1)}{(2x^3 + 1)^2}
+\end{align*}
+
+
+		
+		
+	\end{enumerate}
+	
+	\item (\textbf{32 points}) Apply any rules (including chain or inverse rules) and the logarithmic differentiation as appropriate to compute the result. If you can solve a problem in two different ways, you get two extra points.\\
+	
+	\begin{enumerate}
+		\item[(a)] $f(x) = sin^2 x + cos^2 x; f'(x) = $ ?\\
+		\textbf{Solution:}\\
+		
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\			
+		
+\begin{align*}
+\frac{d}{dx}(sin^2 x + cos^2 x) &= \frac{d}{dx}(sin^2 x) + \frac{d}{dx}(cos^2 x)\\
+&= \frac{d}{dx}(sin^2 x) + 2 cos x \cdot \frac{d}{dx}(cos)\\
+&= \frac{d}{dx}(sin^2 x) + (-sin x) \cdot 2 cos x\\
+&= \frac{d}{dx}(sin^2 x) - 2 cos x \cdot sin x\\
+&= - 2 cos x \cdot sin x + 2 \frac{d}{dx}(sin x) \cdot sin x\\
+&= -2 cos x \cdot sin x + cos x \cdot 2 sin x\\
+&= 0
+\end{align*}			
+		
+		
+		
+		\item[(b)] $f(x) = 3^{2x^2 - 1}; f'(x) = $ ?\\
+		\textbf{Solution:}\\
+
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\	
+
+\begin{align*}
+\frac{d}{dx}(3^{2x^2 - 1}) &= 3^{2x^2 - 1} \cdot log(3)(\frac{d}{dx}(-1 + 2x^2))\\
+&= \frac{d}{dx}(-1) + 2 \frac{d}{dx}(x^2) \cdot 3^{2x^2 - 1} \cdot log(3)\\
+&= 2x \cdot 2 \cdot 3^{2x^2 - 1} \cdot log(3)\\
+&= 4 \cdot 3^{2x^2 - 1} x log(3)
+\end{align*}		
+		
+		
+		
+		\item[(c)] $f(x) = 2^{ln(tan \, x)}; f'(x) = $ ?\\
+		\textbf{Solution:}\\
+		
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\
+
+
+\begin{align*}
+\frac{d}{dx}(2^{ln(tan \, x)}) &= 2^{ln(tan \, x)} \cdot ln(2)( \frac{d}{dx}(2^{ln(tan \, x)}))\\
+&= cot(x) \frac{d}{dx}(tan(x)) 2^{ln(tan \, x)} ln(2)\\
+&= sec(x)^2 \cdot 2^{ln(tan \, x)} \cdot cot(x) ln(2)
+\end{align*}		
+		
+		
+		
+		\item[(d)] $f(x) = \frac{5x^2 - 3}{\sqrt{x + 1}}; f'(x) = $ ?\\
+		\textbf{Solution:}\\
+
+Multiplication rule: $(f \cdot g)'(a) = f'(a) \cdot g(a) + f(a) \cdot g'(a)$\\
+Chain/Composition rule: $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$\\
+
+\begin{align*}
+\frac{d}{dx}(\frac{5x^2 - 3}{\sqrt{x + 1}}) &= (-3 + 5x^2)(\frac{d}{dx}(\frac{1}{\sqrt{1+x}})) + \frac{\frac{d}{dx}(-3 + 5x^2)}{\sqrt{1+x}}\\
+&= \frac{\frac{d}{dx}(-3 + 5x^2)}{\sqrt{1+x}} + (-3 + 5x^2) \cdot \frac{-\frac{d}{dx}(1+x)}{2(x+1)^{\frac{3}{2}}}\\
+&= \frac{\frac{d}{dx}(-3 + 5x^2)}{\sqrt{1 + x}} - \frac{(-3 + 5x^2) \frac{d}{dx}(1) + \frac{d}{dx}(x)}{2(1 + x)^\frac{3}{2}}\\
+&= \frac{10x}{\sqrt{1 + x}} - \frac{-3 + 5x^2}{2(1 + x)^\frac{3}{2}}
+\end{align*}
+
+		
+		
+		\item[(e)] $f(x) = x^3 - 2; ({f^{-1}})'(x) = $ ?\\
+		\textbf{Solution:}\\
+		
+Inverse Rule: If f has an inverse $f^{-1}$, then $(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}$		
+		
+Inverse: $\sqrt[3]{x + 2}$		
+		
+\begin{align*}
+\frac{d}{dx}(\sqrt[3]{x + 2}) &= \frac{1}{\frac{d}{dx}(x^3 - 2) \cdot (\sqrt[3]{x + 2})}\\
+&= \frac{1}{3x^2 \cdot \sqrt[3]{x + 2}}\\
+\end{align*}
+
+		
+		
+	\end{enumerate}
+	
+	
+\end{enumerate}
+
+\end{document}

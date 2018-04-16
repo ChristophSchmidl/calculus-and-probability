@@ -1,0 +1,449 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{framed} 
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 2}
+\author{Christoph Schmidl\\
+s4226887\\
+Data Science\\
+c.schmidl@student.ru.nl\\}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\textbf{After completing these exercises successfully you should be confident with the following topics:}
+
+\begin{itemize}
+	\item Limites, possibly involving infinity
+	\item The definition of the derivative
+	\item The tangent line of a function
+	\item Differentiation rules of (special) functions
+\end{itemize}
+\vspace{1em}
+
+\begin{enumerate}
+
+\item (\textbf{15 points}) Find the limits. (Hint: try to simplify as much as possible before applying the limit!)
+
+
+\begin{enumerate}
+	\item $\lim_{x \to -\infty} \frac{x^3 + 2x^2 + 2}{3x^3 + x + 4}$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+Degree of numerator = degree of denominator! In this case, we just have to look at the coefficients of the variables with the highest degree, namely $x^3$ and $3x^3$. \\}}			
+		
+		\begin{align*}
+		\lim_{x \to -\infty} \frac{x^3 + 2x^2 + 2}{3x^3 + x + 4} &\approx \lim_{x \to -\infty} \frac{x^3}{3x^3}\notag\\
+		&= \frac{1}{3}\notag
+		\end{align*}
+		
+		
+	\item $\lim_{x \to \infty} \frac{3x^2 + 8}{x + 1}$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+Degree of numerator $>$ degree of denominator! In this case, the limit will be $\infty$ or $-\infty$. The numerator dominates the quotient.\\}}		
+	
+		\begin{align*}
+		\lim_{x \to \infty} \frac{3x^2 + 8}{x + 1} &\approx \lim_{x \to \infty} \frac{3x^2}{x}\notag\\
+		&= \infty\notag
+		\end{align*}
+	
+	
+	\item $\lim_{x \to \infty} \frac{2x + 1}{x^2 + x}$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+Degree of numerator $<$ degree of denominator!\\}}		
+	
+	
+		\begin{align*}
+		\lim_{x \to \infty} \frac{2x + 1}{x^2 + x} &\approx \lim_{x \to \infty} \frac{2x}{x^2}\notag\\
+		&= 0\notag
+		\end{align*}	
+	
+	
+	\item $\lim_{x \to a} \frac{x^n - a^n}{x - a}$ for some parameter $a \in \mathbb{R}$ (Hint: Do you recognize this limit? If not, you can always simplify the fraction using long division)\\
+	\textbf{Solution:}\\
+	
+
+\begin{align}
+\frac{x^n - a^n}{x - a} &= (x-a) \sum_{k=1}^{n}a^{k-1}x^{n-k}\notag\\
+\lim_{x \to a} \frac{x^n - a^n}{x - a} &= \lim_{x \to a} \frac{(x-a) \sum_{k=1}^{n}a^{k-1}x^{n-k}}{x - a}\notag\\ 
+&= \lim_{x \to a} \sum_{k=1}^{n}a^{k-1}x^{n-k}\notag\\
+&= \sum_{k=1}^{n}a^{k-1}a^{n-k}\notag\\
+&= \sum_{k=1}^{n}a^{k-1+n-k}\notag\\
+&= \sum_{k=1}^{n}a^{n-1}\notag\\
+&= na^{n-1}\notag
+\end{align}
+
+\end{enumerate}
+
+
+\item (\textbf{20 points}) Recall that if a function $f$ is differentiable at $a$, then the derivative at the point $a$ is defined as 
+
+\begin{equation}
+	f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \notag
+\end{equation}
+
+Use this definition to find the derivative of the following functions at the point $a$:
+
+\begin{enumerate}
+	\item $f(x) = \pi, a = 2$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+This is also proof that the derivative of any constant is always 0.\\}}	
+	
+\begin{align}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\notag\\
+	&= \lim_{h \to 0} \frac{\pi - \pi}{h}\notag\\
+	&= \lim_{h \to 0} \frac{0}{h}\notag\\
+	&= 0\notag
+\end{align}		
+	
+The derivative of the function at any given point $a$ is $0$ and therefore also 0 at point $a = 2$.\\	
+	
+	\item $f(x) = 2x + 3, any \; \; a$\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\notag\\
+	&= \lim_{h \to 0} \frac{\left[ 2(a+h) + 3\right] - (2a + 3)}{h}\notag\\
+	&= \lim_{h \to 0} \frac{2a + 2h + 3 - 2a - 3}{h}\notag\\
+	&= \lim_{h \to 0} \frac{2h}{h}\notag\\
+	&= \lim_{h \to 0} 2\notag\\
+	&= 2\notag
+\end{align}		
+	
+The derivative of the function at any given point $a$ is $2$.\\	
+	
+	
+	\item $f(x) = x^2 + 2x + 1, a = 3$\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\notag\\
+	&= \lim_{h \to 0} \frac{\left[ (a+h)^2 + 2(a+h) + 1\right] - \left[ (a^2 + 2a - 1) \right]}{h}\notag\\
+	&= \lim_{h \to 0} \frac{\left[ a^2 + 2ah + h^2 + 2a + 2h + 1\right] - a^2 - 2a + 1}{h}\notag\\
+	&= \lim_{h \to 0} \frac{2ah + h^2 + 2}{h}\notag\\
+	&= \lim_{h \to 0} 2a + h^2 + 2\notag\\
+	&= 2a + 0^2 + 2\notag\\
+	&= 2a + 2\notag
+\end{align}	
+	
+Plugging in $a = 3$ gives us the derivative of the function at point $a = 8$.\\
+	
+	
+	\item $f(x) = \frac{5x - 7}{4x + 3}, any \; \; a \neq -\frac{3}{4}$\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\notag\\
+		&= \lim_{h \to 0} \frac{ \left[ \frac{5(a+h) - 7}{4(a+h) + 3 } \right] - \left[ \frac{5a - 7}{4a + 3} \right]}{h}\notag\\
+		&= \lim_{h \to 0} \frac{ \left[ \frac{5a + 5h - 7}{4a + 4h + 3 } \right] - \left[ \frac{5a - 7}{4a + 3} \right]}{h}\notag\\
+		&= \lim_{h \to 0} \frac{\frac{[(4a+3)(5a+5h-1)]-[(5a-7)(4a+4h+3)]}{(4a + 3)(4a+4h+3)}}{h}\notag\\
+		&= \lim_{h \to 0} \frac{\frac{(20a^2+15a+20ah+15h-28a-21)-(20a^2-28a+20ah-28h+15a-21)}{(4a+3)(4a+4h+3)}}{h}\notag\\
+		&= \lim_{h \to 0} \frac{\frac{43h}{(4a+3)(4a+4h+3)}}{h}\notag\\
+		&= \lim_{h \to 0} \frac{43}{(4a+3)(4a+4h+3)}\notag\\
+		&= \frac{43}{(4a+3)(4a+3)}\notag\\
+		&= \frac{43}{(4a+3)^2}\notag
+		\end{align}		
+	
+	
+	
+\end{enumerate}
+
+
+\item (\textbf{15 points}) Given the equation $4y - x + 2(1 - ln\; 2) = 0$ and the function $f(x) = a \; ln x, a > 0$.\\
+
+
+\begin{enumerate}
+	\item Find the slope of the line having the equation above.\\
+	\textbf{Solution:}\\
+	
+\begin{align*}
+	4y - x + 2(1 - \ln 2) &= 0\notag\\
+	4y &= x - 2(1 - \ln 2)\notag\\
+	y &= \frac{x - 2 - (2 \cdot \ln 2)}{4}\notag\\
+	y &= \frac{1}{4}x - \frac{1}{2} + \frac{\ln 2}{2}\notag\\
+	y' &= \frac{1}{4}\notag
+\end{align*}	
+
+The slope is $\frac{1}{4}$.\\	
+	
+	
+	\item There exists a value for $a$ such that the line is the tangent line to $f(x)$ in the point $x = 2$. Find $a$.\\
+	\textbf{Solution:}\\
+	
+		
+	\item Find the tangent line to $f(x)$ in the point $x = 2$ for every $a > 0$.\\
+	\textbf{Solution:}\\
+	
+	
+	\begin{align*}
+		f(x) &= a \cdot \ln(x)\notag\\
+		f'(x) &= \left[ 0 \cdot \ln(x)\right] + \left[ a \cdot \frac{1}{x}\right]\notag\\
+		&= \frac{a}{x}
+	\end{align*}
+	
+Plug in $x = 2$ and we get the slope at point 2 $\rightarrow \frac{a}{2}$.\\	
+	
+We know the equation of a line can be written in the form $y - y_0 = m(x - x_0)$, where $m$ represents the slope of the line, and $(x_0,y_0)$ reprents a point on the line.
+
+\begin{align*}
+	y - (a \cdot \ln(2)) &= \frac{a}{2}(x - 2)\notag\\
+	y &= \frac{ax}{2} - \frac{a2}{2} + a \cdot \ln(2)\notag
+\end{align*}	
+	
+	
+\end{enumerate}
+
+\newpage
+
+\item (\textbf{30 points}) Find the derivative on the domain of the following functions. You can freely use all the differentiation rules that were discussed in the lecture. Simplify the result as much as you can.
+
+\begin{enumerate}
+	\item $f(x) = x^4 - 2x^3 +7$\\
+	\textbf{Solution:}\\		
+	
+	
+\begin{align}
+	f(x) &= x^4 - 2x^3 +7\notag\\
+	f'(x) &= 4x^3 - 6x^2\notag
+\end{align}	
+	
+	\item $f(x) = \frac{x^2 + 5}{x - 7}$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Using division rule}\\
+\begin{equation}
+\left(\frac{f}{g}\right)'(a) = \frac{f'(a)g(a) - f(a)g'(a)}{g^2(a)}\notag
+\end{equation}
+\\}}	
+	
+	
+\begin{align}
+	f(x) &= \frac{x^2 + 5}{x - 7}\notag\\
+	f'(x) &= \frac{\left[2x \cdot (x-7) \right] - \left[ (x^2+5) \cdot 1 \right]}{(x-7)^2}\notag\\
+	f'(x) &= \frac{\left[ 2x^2 - 14x \right] - \left[ x^2 + 5 \right]}{(x-7)^2}\notag\\
+	f'(x) &= \frac{x^2 - 14x - 5}{(x-7)^2}\notag
+\end{align}		
+	
+	\item $f(x) = \sin^2 (\sqrt{x})$\\
+	\textbf{Solution:}\\
+
+	
+
+\fbox{\parbox{\textwidth}{\textit{Using productrule with chainrule.}\\
+Derivative used in intermediate steps:
+\begin{align*}
+	\sqrt{x} &= x^\frac{1}{2}\notag\\
+	\frac{d}{dx}\sqrt{x} &= \frac{1}{2}x^{-\frac{1}{2}}\notag\\
+	&= \frac{1}{2} \cdot \frac{1}{\sqrt{x}}\notag\\
+	&= \frac{1}{2\sqrt{x}}\notag
+\end{align*}
+
+}}
+
+\begin{align}
+	f(x) &= \sin^2 (\sqrt{x})\notag\\
+	f(x) &= \sin(\sqrt{x}) \cdot \sin(\sqrt{x})\notag\\
+	f'(x) &= \left[ \frac{\cos(\sqrt{x})}{2\sqrt{x} } \cdot \sin(\sqrt{x})\right] + \left[ \sin(\sqrt{x}) \cdot \frac{\cos(\sqrt{x})}{2\sqrt{x}}\right]\notag\\
+	f'(x) &= 2\left[ \frac{\cos(\sqrt{x})}{2\sqrt{x} } \cdot \sin(\sqrt{x})\right]\notag\\
+	f'(x) &= \frac{2 \cos(\sqrt{x}) \sin(\sqrt{x}) }{2\sqrt{x} }\notag\\
+	f'(x) &= \frac{\cos(\sqrt{x}) \sin(\sqrt{x}) }{\sqrt{x} }\notag
+\end{align}			
+	
+	
+	\item $f(x) = 1 - \cos^2 (\sqrt{x})$\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	f(x) &= 1 - \cos^2 (\sqrt{x})\notag\\
+	f(x) &= 1 - \cos(\sqrt{x}) \cdot \cos(\sqrt{x})\notag\\
+	f'(x) &=  - \left[  \frac{-\sin(\sqrt{x})}{2\sqrt{x}} \cdot \cos(\sqrt{x})\right] + \left[ \cos(\sqrt{x}) \cdot \frac{-\sin(\sqrt{x})}{2\sqrt{x}}\right]\notag\\
+	f'(x) &= - 2\left[ \frac{- \sin(\sqrt{x}) \cdot \cos(\sqrt{x})}{2\sqrt{x}}\right]\notag\\
+	f'(x) &= - \left[ \frac{- \sin(\sqrt{x}) \cdot \cos(\sqrt{x})}{\sqrt{x}}\right]\notag\\
+	f'(x) &=   \frac{ \sin(\sqrt{x}) \cdot \cos(\sqrt{x})}{\sqrt{x}}\notag
+\end{align}		
+	
+	
+	\item $f(x) = exp(\tan(x))$\\
+	\textbf{Solution:}\\
+	
+	
+\begin{align*}
+ f(x) &= \exp(\tan x)\notag\\
+ f(x) &= e^{\tan x}\notag\\
+ f'(x) &= e^{\tan x} \cdot \frac{1}{\cos^2 x}\notag\\
+ &= \frac{e^{\tan x}}{\cos^2 x}\notag
+\end{align*}	
+	
+	\item $f(x) = -ln(\cos(x))$\\
+	\textbf{Solution:}\\
+	
+	
+\begin{align*}
+	f(x) &= - \ln(\cos x)\notag\\
+	f'(x) &= - \frac{1}{\cos x} \cdot (- \sin x)\notag\\
+	&= \frac{\sin x}{\cos x}\notag\\
+	&= \tan x\notag
+\end{align*}	
+	
+	
+	\item $f(x) = arcsin(1 - 2x)$\\
+	\textbf{Solution:}\\
+	
+	
+\begin{align*}
+	f(x) &= \arcsin(1 - 2x)\notag\\
+	f'(x) &= \frac{1}{\sqrt{1 - (1 - 2x)^2}} \cdot (-2)\notag\\
+	&= - \frac{2}{\sqrt{1 - (1 - 2x)^2}}\notag\\
+	&= -\frac{1}{\sqrt{-(x-1)x}}\notag
+\end{align*}	
+	
+	
+	\item $f(x) = 10^{x^2}$\\
+	\textbf{Solution:}\\
+		
+\begin{align*}
+	f(x) &= 10^{x^2}\notag\\
+	f'(x) &= ((\ln 10) \cdot 10^{x^2}) \cdot 2x\notag
+\end{align*}			
+	
+	
+\end{enumerate}
+
+
+
+
+\item (\textbf{20 points}) Apply any rules (including chain or inverse rules) and the logarithmic differentiation as appropiate to compute the result. If you can solve the problem in two different ways, you get two extra points.
+
+	
+\begin{enumerate}
+	\item $f(x) = e^{\sin x}$, compute $f'(x)$\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+$(e^x)' = e^x$. In this case, the chain rule has to be applied: $f(x) = g(h(x)) \rightarrow f'(x) = g'(h(x)) \cdot h'(x)$\\}}	
+	
+\begin{align*}
+	f(x) =  e^{\sin x}\notag\\
+	f'(x) = e^{\sin x} \cdot \cos x\notag
+\end{align*}
+
+
+	
+	
+	\item $f(x) = (\exp x)^{\exp x}$, compute $f'(x)$ (Hint: use logarithmic differentiation or the chain rule)\\
+	\textbf{Solution:}\\
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+$exp$ means 'exponential' function. In other words, $exp(x) = e^x$. It's used when it is too much trouble or too expensive to add a superscript on top of a superscript.\\}}		
+	
+\begin{align*}
+	f(x) = (\exp x)^{\exp x}\notag\\
+	y = (\exp x)^{\exp x}\notag\\
+	\ln y = \ln \left( (\exp(x)^{\exp(x)})  \right)\notag\\
+	\ln y = e^x \cdot \ln e^x\notag\\
+	\ln y = e^x \cdot x\notag\\
+	\frac{1}{y} \cdot y' = e^x \cdot x + e^x \cdot 1\notag\\
+	\frac{y'}{y} = e^x \cdot x + e^x \cdot 1\notag\\
+	\frac{y'}{y} = e^x \cdot x + e^x\notag\\
+	y' = e^x \cdot x + e^x \cdot \exp(x)^{\exp(x)}\notag
+\end{align*}	
+	
+	\item $f(x) = e^{2x}$, compute $(f^{-1})'(x)$\\
+	\textbf{Solution:}\\
+	
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+if $f$ has an inverse $f^{-1}$, then $(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}$\\}}	
+	
+	
+Finding the inverse (Solve for x):\\
+
+\begin{align*}
+	f(x) = e^{2x}\notag\\
+	y = e^{2x}\notag\\
+	\ln y = 2x \cdot \ln e\notag\\
+	\ln y = 2x\notag\\
+	\frac{\ln y}{2} = x\notag
+\end{align*}	
+
+Inverse of $f(x)$: $f^{-1}(x) = \frac{\ln x}{2}$\\
+Taking the derivative directy with product rule:\\
+
+\begin{align*}
+ (f^{-1})'(x) &= \left[ \frac{1}{x} \cdot \frac{1}{2}\right] + \left[ \ln x \cdot 0 \right]\notag\\
+ &= \frac{1}{2x}\notag
+\end{align*}
+
+
+
+
+$f'(x) = 2e^{2x}$\\	
+
+Applying the Inverse Rule to get the derivative:
+
+\begin{align}
+	(f^{-1})'(x) &= \frac{1}{2e^{2(\frac{\ln x}{2})}}\notag\\
+	&= \frac{1}{2e^{\ln x}}\notag\\
+	&= \frac{1}{2x}\notag
+\end{align}
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+The Logarithm ($f(x) = \ln x$) is the inverse function of the eponential function ($f(x) = e^x$). Therefore: $e^{\ln x} = x$\\}}		
+	
+	\item $f(x) = \sqrt{x - 2}$, compute $(f^{-1})'(x)$ (for $x > 2$)\\
+	\textbf{Solution:}\\
+	
+	
+\fbox{\parbox{\textwidth}{\textit{Note:}\\
+if $f$ has an inverse $f^{-1}$, then $(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}$\\}}		
+	
+Finding the inverse (Solve for x):\\
+
+\begin{align*}
+	f(x) &= \sqrt{x - 2}\notag\\
+	y &= \sqrt{x - 2}\notag\\
+	y^2 &= x - 2\notag\\
+	y^2 + 2 &= x\notag
+\end{align*}		
+
+Inverse of $f(x)$: $f^{-1}(x) = x^2 + 2$\\
+Taking the derivative directy: $(f^{-1})'(x) = 2x$\\
+
+Derivative of $f(x)$\\	
+	
+\begin{align*}
+	f(x) &= \sqrt{x - 2}\notag\\
+	f(x) &= (x-2)^\frac{1}{2}\notag\\
+	f'(x) &= \frac{1}{2}(x-2)^{-\frac{1}{2}} \cdot 1\notag\\
+	&= \frac{1}{2} \cdot \frac{1}{2 \sqrt{x-2}}\notag\\
+	&= \frac{1}{2\sqrt{x-2}}\notag
+\end{align*}	
+	
+Applying the Inverse Rule to get the derivative:
+
+\begin{align*}
+	(f^{-1})'(x) &= \frac{1}{\frac{1}{2\sqrt{x^2 + 2 - 2}}}\notag\\
+	&= \frac{1}{\frac{1}{2x}}\notag\\
+	&= 2x\notag
+\end{align*}
+	
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

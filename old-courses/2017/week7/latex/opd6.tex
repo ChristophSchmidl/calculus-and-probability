@@ -1,0 +1,456 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{framed} 
+\usetikzlibrary{arrows,automata}
+\title{Calculus and Probability Theory\\ Assignment 7}
+\author{Christoph Schmidl\\
+s4226887\\
+Data Science\\
+c.schmidl@student.ru.nl\\}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+
+
+
+
+\textbf{After completing these exercises successfully you should be confident with the following topics:}
+
+\begin{itemize}
+	\item recognize and use common distributions of discrete and continuous random variables
+	\item compute the expectation and variance of discrete and continuous random variables
+\end{itemize}
+\vspace{1em}
+
+\begin{enumerate}
+
+
+%%%%%%%%%%%% Task 1 %%%%%%%%%%%%
+\item (\textbf{20 points}) A shooter has exactly 6 bullets and shoots on a target. A random varaible $X$ is the number of bullets used \textit{until he/she hits it for the first time}. The probability of a bullet hitting the target is 0.4 for every attempt.
+
+
+\begin{enumerate}
+	%%%%%%%% Task 1.a %%%%%%%%
+	\item Find the probability distribution of $X$; that is, give the probabilities for all possible values.\\
+	\textbf{Solution:}\\
+	
+	
+The sample space has 7 elements, which are represented as the 6 bullets available to the shooter and the possibility that all bullets miss the target. The probability of a bullet hitting the target is 0.4 and therefore the probability of a bullet missing the target is 0.6.\\	
+
+\begin{itemize}
+	\item Hit the target with zero bullets: $P(X = 0) = 0$
+	\item First bullet hits: $P(X = 1) = 0.4$
+	\item Second bullet hits: $P(X = 2) = 0.6 \cdot 0.4 = 0.24$
+	\item Third bullet hits: $P(X = 3) = 0.6 \cdot 0.6 \cdot 0.4 = 0.144$
+	\item Fourth bullet hits: $P(X = 4) = 0.6^3 \cdot 0.4= 0.0864$
+	\item Fifth bullet hits: $P(X = 5) = 0.6^4 \cdot 0.4 = 0.05184$
+	\item Six bullet hits: $1 - \sum_{i = 1}^5 P(X = i) = 0.07776$
+\end{itemize}
+
+\newpage
+
+
+
+\begin{table}[]
+\centering
+\caption{Probability distribution of X}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+X & 1. & 2. & 3. & 4. & 5. & 6. & None (0)\\ \hline
+P(X = x) & 0.4 & 0.24 & 0.144 & 0.0864 & 0.05184 & 0.07776 & 0\\ \hline
+\end{tabular}
+\end{table}
+
+
+
+	
+	%%%%%%%% Task 1.b %%%%%%%%
+	\item What is the expected value for $X$?\\
+	\textbf{Solution:}\\
+	
+	
+The expectation or expacted value or weighted mean $E(X) \in \mathbb{R}$ is
+
+\begin{align}
+	E(X) = P(X = x_1) \cdot x_1 + ... + P(X = x_n) \cdot x_n\notag
+\end{align}	
+
+Therefore, in our specific case:
+
+\begin{align}
+	E(X) &= 0.4 \cdot 1 + 0.24 \cdot 2 + 0.144 \cdot 3 + 0.0864 \cdot 4\notag\\
+	 &+ 0.05184 \cdot 5 + 0.07776 \cdot 6 + 0 \cdot 0\notag\\
+	 &= 2.38336\notag
+\end{align}
+	
+	
+	
+	%%%%%%%% Task 1.c %%%%%%%%
+	\item What is the variance?\\
+	\textbf{Solution:}\\
+	
+The variance $Var(X) \in \mathbb{R}$ describes the spread
+
+\begin{align}
+	Var(X) = E((X - E(X))^2) = \sum_i P(X = x_i) \cdot (x_i - E(X))^2\notag
+\end{align}	
+	
+Therefore, in our specific case:
+
+\begin{align}
+	Var(X) &= 0.4(1 - 2.38336)^2 + 0.24(2 - 2.38336)^2 + 0.144(3 - 2.38336)^2\notag\\
+	& \qquad + 0.0864(4 - 2.38336)^2 + 0.05184(5 - 2.38336)^2\notag\\
+	& \qquad + 0.07776(6 - 2.38336)^2 + 0(0 - 2.38336)^2\notag\\
+	&\approx 2.45336\notag
+\end{align}	
+	
+	
+
+
+	%%%%%%%% Task 1.c %%%%%%%%
+	\item What is the standard deviation?\\
+	\textbf{Solution:}\\
+	
+The standard deviation is: $\sigma_x = \sqrt{Var(X)}$.
+
+
+Therefore, in our specific case: $\sqrt{Var(X)} = \sqrt{2.45336} \approx 1.56632$\\
+
+
+	
+	
+\end{enumerate}
+
+
+
+%%%%%%%%%%%% Task 2 %%%%%%%%%%%%
+\item (\textbf{20 points}) Consider a class where students have to hand in exercises every week. They have to hand in eight assignments in total and have to pass at least five to be able to attend the exam. Student $A$ does not study very hard, so for each assignment he/she has a probability of 0.5 to pass. Student $B$ studies very hard, so for each assignment he/she has a probability of 0.8 to pass. The random variable $X_A$ is the number of passes of student $A$ and the random variable $X_B$ is the number of passes of student $B$.
+
+
+\begin{enumerate}
+	%%%%%%%% Task 2.a %%%%%%%%
+	\item Find $P(X_A = 5)$\\
+	\textbf{Solution:}\\
+	
+Binomial distribution $b : S \rightarrow [0,1]$ as
+
+\begin{align}
+	b(k) = {n \choose k}p^k(1-p)^{n-k}\notag
+\end{align}
+	
+Reading $b(k)$ as: the probability of exactly k successes after n trials, each with chance p.\\
+
+
+Therefore,
+
+\begin{align}
+	b(5) &= {8 \choose 5}(\frac{1}{2})^5(1 - \frac{1}{2})^{8 - 5}\notag\\
+	&= \frac{8!}{5! \cdot 3!}(\frac{1}{2})^5(\frac{1}{2})^3\notag\\
+	&= 56 (\frac{1}{2})^8\notag\\
+	&= \frac{7}{32}\notag\\
+	&\approx 0.21875\notag
+\end{align}
+	
+$P(X_A = 5) = \frac{7}{32} \approx 0.21875$\\
+	
+	%%%%%%%% Task 2.b %%%%%%%%
+	\item Find $P(X_A \geq 5)$\\
+	\textbf{Solution:}\\
+	
+In this case we just have to add up the formula we used in the previous task. Therefore:
+
+\begin{align}
+	P(X_A \geq 5) = b(5) + b(6) + b(7) + b(8) \notag
+\end{align}	
+	
+
+
+\begin{align}
+	b(6) &= {8 \choose 6}(\frac{1}{2})^6(1 - \frac{1}{2})^{8 - 6}\notag\\
+	&= \frac{8!}{6! \cdot 2!}(\frac{1}{2})^6(\frac{1}{2})^2\notag\\
+	&= 28 (\frac{1}{2})^8\notag\\
+	&= \frac{7}{64}\notag\\
+	&\approx 0.109375\notag
+\end{align}
+	
+	
+\begin{align}
+	b(7) &= {8 \choose 7}(\frac{1}{2})^7(1 - \frac{1}{2})^{8 - 7}\notag\\
+	&= \frac{8!}{7! \cdot 1!}(\frac{1}{2})^7(\frac{1}{2})^1\notag\\
+	&= 8 (\frac{1}{2})^8\notag\\
+	&= \frac{1}{32}\notag\\
+	&\approx 0.03125\notag
+\end{align}
+
+
+\begin{align}
+	b(8) &= {8 \choose 8}(\frac{1}{2})^8(1 - \frac{1}{2})^{8 - 8}\notag\\
+	&= 1(\frac{1}{2})^8(\frac{1}{2})^0\notag\\
+	&= (\frac{1}{2})^8\notag\\
+	&= \frac{1}{256}\notag\\
+	&\approx 0.0039063\notag
+\end{align}
+
+\begin{align}
+	P(X_A \geq 5) &= b(5) + b(6) + b(7) + b(8) \notag\\
+	&= \frac{7}{32} + \frac{7}{64} + \frac{1}{32} + \frac{1}{256}\notag\\
+	&= \frac{93}{256}\notag\\
+	&\approx 0.3633\notag
+\end{align}		
+	
+	%%%%%%%% Task 2.c %%%%%%%%
+	\item Find $P(X_B \geq 5)$\\
+	\textbf{Solution:}\\
+
+\begin{align}
+	P(X_B \geq 5) = b(5) + b(6) + b(7) + b(8) \notag
+\end{align}	
+	
+\begin{align}
+	b(5) &= {8 \choose 5}(\frac{4}{5})^5(1 - \frac{4}{5})^{8 - 5}\notag\\
+	&= 56 (\frac{4}{5})^5(\frac{1}{5})^3\notag\\
+	&= 0.14680064\notag
+\end{align}
+
+\begin{align}
+	b(6) &= {8 \choose 6}(\frac{1}{2})^6(1 - \frac{1}{2})^{8 - 6}\notag\\
+	&= {8 \choose 6}(\frac{4}{5})^6(\frac{1}{5})^2\notag\\
+	&= 0.29360128\notag
+\end{align}
+	
+	
+\begin{align}
+	b(7) &= {8 \choose 7}(\frac{1}{2})^7(1 - \frac{1}{2})^{8 - 7}\notag\\
+	&= {8 \choose 7}(\frac{4}{5})^7(\frac{1}{5})\notag\\
+	&= 0.33554432\notag
+\end{align}
+
+
+\begin{align}
+	b(8) &= {8 \choose 8}(\frac{1}{2})^8(1 - \frac{1}{2})^{8 - 8}\notag\\
+	&= {8 \choose 8}(\frac{4}{5})^8\notag\\
+	&= 0.16777216\notag
+\end{align}
+
+\begin{align}
+	P(X_A \geq 5) &= b(5) + b(6) + b(7) + b(8) \notag\\
+	&\approx 0.94372\notag
+\end{align}	
+	
+\end{enumerate}
+
+
+%%%%%%%%%%%% Task 3 %%%%%%%%%%%%
+\item (\textbf{20 points}) A continuous random variable X has the following probability density function:
+
+
+\[
+ f(x) = 
+  \begin{cases} 
+   a \cdot (1 - 4x^2) & \text{if } -\frac{1}{2} < x < \frac{1}{2}\\
+   0 & \text{otherwise}
+  \end{cases}
+\]
+
+
+
+
+\begin{enumerate}
+	%%%%%%%% Task 3.a %%%%%%%%
+	\item Find the constant $a$.\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	\int_{-\frac{1}{2}}^{\frac{1}{2}}f(x)dx &= 1\notag\\
+	a \int_{-\frac{1}{2}}^{\frac{1}{2}} (1 - 4x^2)dx &= 1\notag\\
+	a \left[ x - \frac{4}{3}x^3\right]_{-\frac{1}{2}}^\frac{1}{2} &= 1\notag\\
+	a \left[ (\frac{1}{2} - \frac{4}{24}) - (- \frac{1}{2} + \frac{4}{23})\right] &= 1\notag\\
+	a \left[ (\frac{1}{2} - \frac{1}{6} + \frac{1}{2} - \frac{1}{6})\right] &= 1\notag\\
+	a \cdot \frac{2}{3} &= 1\notag\\
+	a &= \frac{3}{2}\notag
+\end{align}		
+		
+		
+		
+	
+	%%%%%%%% Task 3.b %%%%%%%%
+	\item Find the cumulative distribution function $F(x)$\\
+	\textbf{Solution:}\\
+
+\[
+ F(x) = 
+  \begin{cases} 
+    (\frac{3}{2}x - 2x^3) + C & \text{if } -\frac{1}{2} < x < \frac{1}{2}\\
+   0 & \text{otherwise}
+  \end{cases}
+\]
+\vspace{1em}
+
+	
+
+	%%%%%%%% Task 3.c %%%%%%%%
+	\item Compute the probability $P(X = \frac{1}{4})$\\
+	\textbf{Solution:}\\
+
+\begin{align}
+	P(X = \frac{1}{4}) &= \int_\frac{1}{4}^\frac{1}{4} (\frac{3}{2} - 6x^2)dx\notag\\
+	&= 0\notag
+\end{align}
+\vspace{1em}
+
+
+
+
+	%%%%%%%% Task 3.d %%%%%%%%
+	\item Compute the probability $P(0 < X < \frac{1}{4})$\\
+	\textbf{Solution:}\\
+	
+\begin{align}
+	P(0 < X < \frac{1}{4}) &= \int_0^\frac{1}{4} (\frac{3}{2} - 6x^2)dx\notag\\
+	&= \left[ \frac{3}{2}x - 2x^3 \right]_0^\frac{1}{4}\notag\\
+	&= \left[ (\frac{3}{8} - \frac{1}{32})\right]\notag\\
+	&= \frac{11}{32}\notag\\
+	&\approx 0.34375\notag
+\end{align}	
+	
+	
+	
+	
+\end{enumerate}
+
+
+
+
+
+
+
+%%%%%%%%%%%% Task 4 %%%%%%%%%%%%
+\item (\textbf{20 points}) TV sets with various defects are brought to the service for reparation. The time of reparation is continuous random variable T. The cumulative distribution function of $T$ is given as:
+
+
+\[
+ F(t) = 
+  \begin{cases} 
+   0 & \text{if } t < 0,\\
+   1 - e^{-kt} & \text{if } t \geq 0,
+  \end{cases}
+\]
+\begin{center}
+where $k > 0$
+\end{center}
+
+\newpage
+
+\begin{enumerate}
+	%%%%%%%% Task 4.a %%%%%%%%
+	\item Find the probability density function $f$ of the random variable.\\
+	\textbf{Solution:}\\
+
+
+\begin{align}
+	\frac{d}{dt} (1 - e^{-kt}) &= -e^{-kt}(-k)\notag\\
+	&= ke^{-kt}\notag
+\end{align}
+
+
+
+\[
+ f(t) = \frac{dF(t)}{dt}
+  \begin{cases} 
+    ke^{-kt} & \text{if } x \geq 0\\
+   0 & \text{if } x < 0
+  \end{cases}
+\]
+\vspace{1em}
+
+
+	%%%%%%%% Task 4.b %%%%%%%%
+	\item Find the expectation and variance.\\
+	\textbf{Solution:}\\
+			
+\begin{align}
+E(X) &= \int_{-\infty}^{\infty} x \cdot f(x)dx\notag\\
+	 &= \int_0^\infty x ke^{-kx}dx\notag 
+\end{align}	
+	
+	
+\begin{align}
+Var(X) &= \int_{0}^{\infty} (x - \int_0^\infty x ke^{-kx}dx)^2 \cdot ke^{-kx}dx\notag
+\end{align}
+	
+	
+\end{enumerate}
+
+
+
+%%%%%%%%%%%% Task 5 %%%%%%%%%%%%
+\item (\textbf{20 points}) A normal random variable $X$ has probability density function
+
+\begin{align}
+f(x) = \frac{1}{3}\exp(-\frac{\pi}{9}(x^2 - 4x + 4))\notag
+\end{align}
+
+
+
+\begin{enumerate}
+	%%%%%%%% Task 5.a %%%%%%%%
+	\item Find the mean $\mu$ and the variance $\sigma$.\\
+	\textbf{Solution:}
+
+The variance is denoted as $\sigma^2$, so I guess we are searching for the standard deviation $\sigma$?
+
+\begin{align*}
+\frac{1}{\sigma \sqrt{2 \pi}} = \frac{1}{3} \Rightarrow \sigma = \frac{3}{\sqrt{2 \pi}}
+\end{align*}
+
+\begin{align*}
+- \frac{1}{2} \left( \frac{x - \mu }{\sigma}\right)^2 = \frac{-1}{2 \sigma^2}(x - \mu)^2 = \frac{- \pi}{9}(x^2 - 2 \mu x + \mu^2)
+\end{align*}
+
+\begin{itemize}
+	\item $\mu = 2$
+	\item $\sigma = (\frac{3}{\sqrt{2 \pi}})^2 = \frac{9}{2 \pi}$
+\end{itemize}
+
+
+
+	
+	%%%%%%%% Task 5.b %%%%%%%%
+	\item Let $Y$ be the random variable defined by $Y = \frac{X - \mu}{\sigma}$. For a real number $a$ show that \begin{align}
+	P(Y \leq -a) = 1 - P(Y \leq a)\notag
+	\end{align}
+	(Hint: use that $\int_\alpha^\beta \phi(x)dx = -\int_\beta^\alpha \phi(x)dx.$)\\
+	\textbf{Solution:}
+
+
+\begin{align*}
+	P(Y \leq -a) &= \int_{-\infty}^{-a} \phi(x) \; dx\\
+	&= \lim_{b \to \infty} \int_{-b}^{-a} \phi(x) \; dx\\
+	&= \lim_{b \to \infty} \int_b^a - \phi(x) \; dy\\
+	&= \lim_{b \to \infty} \int_a^b \phi(y) \; dy\\
+	&= P(Y \geq a)\\
+	&= 1 - P(Y \leq a)
+\end{align*}
+
+
+
+\end{enumerate}
+
+
+
+	
+	
+
+
+\end{enumerate}
+
+\end{document}
