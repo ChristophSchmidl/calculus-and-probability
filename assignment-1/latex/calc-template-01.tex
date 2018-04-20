@@ -104,7 +104,8 @@
  s4226887  % Fill in your student number
 } \\
 \global\Copy{group}{
- Master Computing Science  % Fill in your assigned group
+ Master Computing Science\\
+ Group: Tutorial 5  % Fill in your assigned group
 }}
 
 % In LaTeX everything before \begin{document} is called pre-amble.
@@ -157,48 +158,65 @@ Values x for which $f(x) > 0 \rightarrow (0, 1),(-\infty, -1)$  % Put here the f
 }
 
 \exercise{7}{%
-\dots  % Put here your calculation
+
+There are three cases in total.\\
+
+\begin{enumerate}
+	\item When $a = b$, then $y = \{ a \}$
+	\item When $b > a$, then $(b - a) \geq 0$. $x \in (0,1) \rightarrow y = a + (b - a)x > a$ and $y = a + (b - a)x < a + (b - a) = b$. Determine if $y$ takes every value in the interval $(a,b)$: $c \in (a,b)$. $ c = a + (b - a)x_c \Leftrightarrow x_c = \frac{c - a}{b - a}$. Therefore $y$ runs through all values in $(a,b)$ because for every element $c$ in $(a,b)$ there exists an element $x_c \in (0,1)$ such that $c = a + (b - a)x_c$. Y runs through all values in $(a,b)$. 
+	\item When $b < a$, then $(b - a) < 0$. Using $x \in (0,1)$, there is $y = a + (b - a)x < a$ and $y = a + (b - a)x > a + (b - a) = b \rightarrow $ y takes values in $(b,a)$. Using the same procedure as above, $y$ runs through all values in $(b,a)$.
+\end{enumerate}
+
+
 \global\Copy{exzeven}{
- \dots % Put here the final answer
+$y$ runs through all values in $(a,b)$, except when $a = b$, then $y = \{ a \}$
 }
 }
 
 \exerciseenum{8}{%
 \item%a
-\dots  % Put here your calculation
+$f(-x) =  3(-x) - (-x)^3 = -3x + x^3 = -(3x - x^3) = -f(x)$. The function is odd.
 \global\Copy{exachta}{
- \dots % Put here the final answer
+The function is odd.
 }
 \item%b
-\dots  % Put here your calculation
+$f(-x) = \sqrt[3]{( 1 - (-x))^2} + \sqrt[3]{(1 + (-x))^2} = \sqrt[3]{(1 + x)^2} + \sqrt[3]{(1 - x)^2} = f(x)$. The function is even.
 \global\Copy{exachtb}{
- \dots % Put here the final answer
+The function is even.
 }
 }
 
 \exerciseenum{9}{%
 \item%a
-\dots  % Put here your calculation
+
+$f(x) = \sqrt{7 - x^2} + 1$\\
+Assume that has to be $7 - x^2 \geq 0$. The only possible values lie in $- \sqrt{7} \leq x \leq \sqrt{7}$. So $D(f) = [- \sqrt{7}$\\
+
+As $0 \leq 7 - x^2 \leq 7$, we have $0 \leq \sqrt{7 - x^2} \leq \sqrt{7}$, so $1 \leq f(x) \leq \sqrt{7} + 1$. So $R(f) = [1, \sqrt{7} + 1]$
+
 \global\Copy{exnegena}{
- \dots % Put here the final answer
+$D(f) = [- \sqrt{7}, \sqrt{7}]$, $R(f) = [1, \sqrt{7} + 1]$
 }
 \item%b
-\dots  % Put here your calculation
+$f(x) = \frac{1}{|x|}$\\
+The domain only excludes $x = 0$. So $D(f) = \mathbb{R} \setminus \{ 0 \}$. The range is $R(f) = (0, \infty)$
 \global\Copy{exnegenb}{
- \dots % Put here the final answer
+$D(f) = \mathbb{R} \setminus \{ 0 \}$, $R(f) = (0, \infty)$
 }
 }
 
 \exerciseenum{10}{%
 \item%a
-\dots  % Put here your calculation
+
+$y(cx + d) = ax + b \rightarrow x(cy - a) = -dy + b$ so $x = \frac{-dy + b}{cy - a}$. So the inverse of y is $\frac{-dx + b}{cx - a}$
+
 \global\Copy{extiena}{
- \dots % Put here the final answer
+The inverse of y is $\frac{-dx + b}{cx - a}$
 }
 \item%b
-\dots  % Put here your calculation
+
 \global\Copy{extienb}{
- \dots % Put here the final answer
+It is equal to $y$ when $d = -a$
 }
 }
 

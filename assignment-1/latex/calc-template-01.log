@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.15)  16 APR 2018 18:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.15)  20 APR 2018 12:54
 entering extended mode
 **./calc-template-01.tex
 (calc-template-01.tex
@@ -169,18 +169,18 @@ Package: clipboard 2013/01/18 v0.2 Copy and paste into and across documents
 (calc-template-01.aux)
 \openout1 = `calc-template-01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
 
 (C:\Users\cs\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -240,78 +240,92 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \clipboard {name}{ Christoph Schmidl }
 \clipboard {snumber}{ s4226887 }
-\clipboard {group}{ Master Computing Science }
+\clipboard {group}{ Master Computing Science\\ Group: Tutorial 5 }
 \clipboard {exzesa}{ Values x for which $f(x) = 0 \rightarrow \{-1, 0, 1 \}$ }
 \clipboard {exzesb}{ Values x for which $f(x) > 0 \rightarrow (0, 1),(-\infty ,
  -1)$ }
-\clipboard {exzeven}{ \dots }
-\clipboard {exachta}{ \dots }
-\clipboard {exachtb}{ \dots }
-\clipboard {exnegena}{ \dots }
-\clipboard {exnegenb}{ \dots }
-\clipboard {extiena}{ \dots }
-\clipboard {extienb}{ \dots }
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+
+ []
+
+\clipboard {exzeven}{ $y$ runs through all values in $(a,b)$, except when $a = 
+b$, then $y = \{ a \}$ }
+\clipboard {exachta}{ The function is odd. }
+\clipboard {exachtb}{ The function is even. }
 [1
 
 {C:/Users/cs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
+
+ []
+
+\clipboard {exnegena}{ $D(f) = [- \sqrt {7}, \sqrt {7}]$, $R(f) = [1, \sqrt {7}
+ + 1]$ }
+\clipboard {exnegenb}{ $D(f) = \mathbb {R} \setminus \{ 0 \}$, $R(f) = (0, \inf
+ty )$ }
+\clipboard {extiena}{ The inverse of y is $\frac {-dx + b}{cx - a}$ }
+\clipboard {extienb}{ It is equal to $y$ when $d = -a$ }
 \clipboard {exelfa}{ $\lim _{x \to 2} \frac {x - 2}{ x^2 + x - 6} = \frac {1}{5
 }$ }
 \clipboard {exelfb}{ $\lim _{x \to 1} \frac {x^2 - 4x + 3}{x^2 + x -2} = -\frac
  {2}{3}$ }
 [2]
-Overfull \hbox (41.63144pt too wide) in paragraph at lines 234--241
+Overfull \hbox (41.63144pt too wide) in paragraph at lines 252--259
 [] 
  []
 
 
-Overfull \hbox (23.92085pt too wide) in paragraph at lines 248--248
+Overfull \hbox (23.92085pt too wide) in paragraph at lines 266--266
 []|\OT1/cmr/bx/n/12 Question| 
  []
 
 
-Overfull \hbox (41.63142pt too wide) in paragraph at lines 243--262
+Overfull \hbox (41.63142pt too wide) in paragraph at lines 261--280
 [] 
  []
 
 [3] (calc-template-01.aux) ) 
 Here is how much of TeX's memory you used:
- 2928 strings out of 493334
- 38832 string characters out of 3136681
- 106549 words of memory out of 3000000
- 6402 multiletter control sequences out of 15000+200000
+ 2927 strings out of 493334
+ 38816 string characters out of 3136681
+ 109568 words of memory out of 3000000
+ 6401 multiletter control sequences out of 15000+200000
  11195 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,10n,26p,244b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,10n,26p,499b,209s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on calc-template-01.pdf (3 pages, 148184 bytes).
+/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on calc-template-01.pdf (3 pages, 176191 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
