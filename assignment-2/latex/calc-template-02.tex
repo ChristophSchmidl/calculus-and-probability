@@ -98,13 +98,13 @@
 % group (for the exercise hours)
 \author{
 \global\Copy{name}{
- First and family name  % Fill in your name
+ Christoph Schmidl  % Fill in your name
 } \\ 
 \global\Copy{snumber}{
- student number  % Fill in your student number
+ s4226887  % Fill in your student number
 } \\
 \global\Copy{group}{
- Group x  % Fill in your assigned group
+ Master Computing Science\\Group: Tutorial 5  % Fill in your assigned group
 }}
 
 % In LaTeX everything before \begin{document} is called pre-amble.
@@ -134,39 +134,106 @@
 
 \exerciseenum{6}{% 
 \item%a
-\dots  % Put here your calculation
+
+By dividing the numerator and denominator by $x^3$ we get $\frac{x^3 + 2x^2 + 2}{3x^3 + x + 4} = \frac{1 + \frac{2}{x} + \frac{2}{x^3}}{3 + \frac{1}{x^2} + \frac{4}{x^3}}$. By ignoring the last terms of both the numerator and the denominator because they do not contribute that much in the very end, we get 
+
 \global\Copy{exsixa}{
-  Answer 6a% Put here the final answer, which is then also copied to the form on the last page
+\begin{align*}
+\lim_{x \to - \infty} \frac{x^3 + 2x^2 + 2}{3x^3 + x + 4} = \frac{1}{3}
+\end{align*}
 }
 
 \item%b
-\dots  % Put here your calculation
+
+By dividing the numerator and denominator by $x^2$ we get $\frac{2x+1}{x^2+x} = \frac{\frac{2}{x}+\frac{1}{x^2}}{1 + \frac{1}{x}}$. The numerator converges towards 0 and the denominator towards 1. Therefore we get
+
 \global\Copy{exsixb}{
-  Answer 6b% Put here the final answer
+  \begin{align*}
+  \lim_{x \to \infty} \frac{2x+1}{x^2+x} = 0
+  \end{align*}
 }
 
 }
 
 \exerciseenum{7}{% 
 \item%a
-\dots  % Put here your calculation
+
+\begin{align*}
+f(a + h) = 2(a + h) + 3 = 2a + 2h + 3
+\end{align*}
+
+\begin{align*}
+f(a) = 2a + 3
+\end{align*}
+
+\begin{align*}
+f(a + h) - f(a) = 2a + 2h + 3 - 2a - 3 = 2h
+\end{align*}
+
+
 \global\Copy{exsevena}{
-  Answer 7a% Put here the final answer, which is then also copied to the form on the last page
+
+\begin{align*}
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = \lim_{h \to 0} \frac{2h}{2} = 2
+\end{align*}
+
 }
 
 \item%b
-\dots  % Put here your calculation
+
+\begin{align*}
+f(a+h) = \frac{5(a+h)-7}{f(a+h)+3} = \frac{5a-7+5h}{4a+3+4h}
+\end{align*}
+
+\begin{align*}
+f(a+h) - f(a) &= \frac{5a - 7 + 5h}{4a + 3 + 4h} - \frac{5a - 7}{4a + 3}\\
+&= \frac{(5a-7+5h)(4a+3)-(5a-7)(4a+3+4h)}{(4a + 3 + 4h)(4a + 3)}\\
+&= \frac{43h}{(4a+3+4h)(4a+3)}
+\end{align*}
+
+\begin{align*}
+\lim_{h \to 0} \frac{f(a+h)-f(a)}{h} &= \lim_{h \to 0} \frac{43h}{(4a+3+4h)(4a+3)} \frac{1}{h}\\
+&= \lim_{h \to 0} \frac{43}{(4a+3+4h)(4a+3)}\\
+&= \frac{43}{(4a+3)^2}
+\end{align*}
+
+
 \global\Copy{exsevenb}{
-  Answer 7b% Put here the final answer, which is then also copied to the form on the last page
+$f'(a) = \frac{43}{(4a+3)^2}$ for every $a$ in $\mathbb{R} \setminus \{ - \frac{3}{4}\}$
 }
 
 }
 
 \exerciseenum{8}{% 
 \item%a
-\dots  % Put here your calculation
+
+Getting the slope of the tangent line at $x = 2$:
+
+\begin{align*}
+	f'(x) = \frac{1}{(x+1)^2}\\
+	f'(2) = \frac{1}{9}
+\end{align*}
+
+Getting a point on the tangent line to be able to formulate the equation:
+
+\begin{align*}
+f(x) = \frac{1}{1 + \frac{1}{2}} \rightarrow  y = \frac{2}{3}
+\end{align*}
+
+Therefore, we now have found the coordinate $(2, \frac{2}{3})$ for the point shared by $f(x)$ and the line to $f(x) = 2$. The only step left is to use the point $(2, \frac{2}{3})$ and slope $\frac{1}{9}$ in the point-slope formula for a line:
+
+\begin{align*}
+y - y_1 &= (m(x - x_1))\\
+y &= \frac{x}{9} + \frac{4}{9}
+\end{align*}
+
+
 \global\Copy{exeighta}{
-  Answer 8a% Put here the final answer, which is then also copied to the form on the last page
+
+\begin{align*}
+y = \frac{x}{9} + \frac{4}{9}
+\end{align*}
+
 }
 
 \item%b
@@ -179,30 +246,58 @@
 
 \exerciseenum{9}{% 
 \item%a
-\dots  % Put here your calculation
+
+$(e^x)' = e^x$, $(tan(x))' = \frac{1}{cos^2 x}$ Using the chain rule we get
+
 \global\Copy{exninea}{
-  Answer 9a% Put here the final answer, which is then also copied to the form on the last page
+
+\begin{align*}
+f'(x) = exp(tan(x))\frac{1}{cos^2x} = \frac{exp(tan(x))}{cos^2x}
+\end{align*}
+
 }
 
 \item%b
-\dots  % Put here your calculation
+
+$(\ln x)' = \frac{1}{x}$, $(\cos x))' = - \sin x$ Using the chain rule we get
+
 \global\Copy{exnineb}{
-  Answer 9b% Put here the final answer, which is then also copied to the form on the last page
+\begin{align*}
+f'(x) = - \frac{1}{\cos x}(- \sin x) = \frac{\sin x}{\cos x} = tan(x)
+\end{align*}
+
 }
 
 }
 
 \exerciseenum{10}{% 
 \item%a
-\dots  % Put here your calculation
+
+1. Using the chain rule given that $g(x) = x^x$ and $h(x) = exp \; x \rightarrow f(x) = (g \circ h)(x)$. $g'(x) = x^x(log \; x + 1)$, $h'(x) = exp \; x$. Therefore:
+
+\begin{align*}
+f'(x) = g'(h(x))h'(x) = (exp \; x)^{exp \; x}(x + 1)exp \; x = (exp \; x)^{exp \; x+1}(x+1) = e^{x(e^x + 1)}(x+1)
+\end{align*}
+
+2. Using logarithmic differentiation: $\ln((exp \; x)^{exp \; x}) = x \; exp \; x \rightarrow \frac{f'(x)}{f(x)} = exp \; x(x+1)$.\\
+
+\begin{align*}
+f'(x) = (exp \; x)^{exp \; x+1}(x+1) = e^{x(e^x+1)}(x+1)
+\end{align*}
+
 \global\Copy{extena}{
-  Answer 10a% Put here the final answer, which is then also copied to the form on the last page
+\begin{align*}
+f'(x) = (exp \; x)^{exp \; x+1}(x+1) = e^{x(e^x+1)}(x+1)
+\end{align*}
 }
 
 \item%b
-\dots  % Put here your calculation
+1. Using the inverse: $f^{-1}(x) = x^2 + 2 \rightarrow (f^{-1})'(x) = 2x$\\
+2. $f^{-1}(x) = x^2 + 2$, $f'(x) = \frac{1}{2 \sqrt{x-2}} \rightarrow (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))} ? \frac{1}{\frac{1}{2 \sqrt{(x^2+2)-2}}} = \frac{1}{\frac{1}{2x}} = 2x$
 \global\Copy{extenb}{
-  Answer 10b% Put here the final answer, which is then also copied to the form on the last page
+\begin{align*}
+(f^{-1})'(x) = 2x
+\end{align*}
 }
 
 }
