@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.15)  10 MAY 2018 13:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.15)  13 MAY 2018 23:00
 entering extended mode
 **./calc-template-03.tex
 (calc-template-03.tex
@@ -166,7 +166,7 @@ LaTeX Info: Redefining \] on input line 2740.
 Package: clipboard 2013/01/18 v0.2 Copy and paste into and across documents
 \clipboard@fileout=\write3
 )
-No file calc-template-03.aux.
+(calc-template-03.aux)
 \openout1 = `calc-template-03.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
@@ -181,6 +181,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
 LaTeX Font Info:    ... okay on input line 113.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
 LaTeX Font Info:    ... okay on input line 113.
+
 (C:\Users\cs\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count101
@@ -252,50 +253,93 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \clipboard {name}{ Christoph Schmidl }
 \clipboard {snumber}{ s4226887 }
 \clipboard {group}{ Master Computing Science\\Group: Tutorial 5 }
-\clipboard {exsix}{ Answer 6}
-\clipboard {exsevena}{ Answer 7a}
-\clipboard {exsevenb}{ Answer 7b}
-\clipboard {exeight}{ Answer 8}
-\clipboard {exninea}{ Answer 9a}
-\clipboard {exnineb}{ Answer 9b}
-\clipboard {exninec}{ Answer 9c}
-\clipboard {exnined}{ Answer 9d}
-\clipboard {extena}{ Answer 10a}
-\clipboard {extenb}{ Answer 10b}
+\clipboard {exsix}{ $f'(x) = \frac {2x \sin (x^2)}{\sqrt {1 - \cos ^2(x^2)}}$ }
+
+\clipboard {exsevena}{ \begin {align*} \lim _{x \to \infty } \frac {x^2}{1 + e^
+{-x}} = \infty \end {align*} }
+\clipboard {exsevenb}{ After applying L'Hopital repeatedly, we get $A \cdot B \
+cdot C = -1 \cdot \frac {1}{6} \cdot 120 = -20$ }
+\clipboard {exeight}{ \begin {align*} g^{2015}(x) = 3^{2015} \sin (3x) \end {al
+ign*} }
 [1
 
 {C:/Users/cs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (41.63144pt too wide) in paragraph at lines 218--225
+\clipboard {exninea}{ Two roots: $x_0 = -1$ and $x_1 = 3$. y-intercept: $f(0) =
+ -3$ }
+\clipboard {exnineb}{ \begin {align*} \lim _{x \ to - \infty } = - \infty \quad
+ \text {and} \quad \lim _{x \ to + \infty } = + \infty \end {align*} }
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+
+ []
+
+\clipboard {exninec}{ $f''(-1) = -14 < 0$, therefore it is a maximum and $f''(\
+frac {5}{3}) = 13 > 0$, therefore is is a minimum. }
+\clipboard {exnined}{ The function is concave $\Leftrightarrow f''(x) < 0 \Left
+rightarrow 6x - 2 < 0 \Leftrightarrow x < \frac {1}{3}$. The function is convex
+ $\Leftrightarrow f''(x) > 0 \Leftrightarrow 6x - 2 > 0 \Leftrightarrow x > \fr
+ac {1}{3}$. The point of inflection is at $x = \frac {1}{3}$ }
+\clipboard {extena}{ $\frac {1}{6} \sin (x)(\cos (2x)+5) + C$ }
+\clipboard {extenb}{ $f_i(x) = \frac {1}{2} \sin ^2(x) + C_i$ and pick three di
+stinct value for $C_i$ }
+[2]
+Overfull \hbox (41.63144pt too wide) in paragraph at lines 279--286
 [] 
  []
 
 
-Overfull \hbox (23.92085pt too wide) in paragraph at lines 232--232
+Overfull \hbox (23.92085pt too wide) in paragraph at lines 293--293
 []|\OT1/cmr/bx/n/12 Question| 
  []
 
 
-Overfull \hbox (41.63142pt too wide) in paragraph at lines 227--245
+Overfull \hbox (41.63142pt too wide) in paragraph at lines 288--306
 [] 
  []
 
-[2] (calc-template-03.aux) ) 
+[3] (calc-template-03.aux) ) 
 Here is how much of TeX's memory you used:
- 2915 strings out of 493334
- 38669 string characters out of 3136681
- 105567 words of memory out of 3000000
- 6393 multiletter control sequences out of 15000+200000
- 9496 words of font info for 36 fonts, out of 3000000 for 9000
+ 2926 strings out of 493334
+ 38799 string characters out of 3136681
+ 108567 words of memory out of 3000000
+ 6400 multiletter control sequences out of 15000+200000
+ 11195 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,9n,26p,244b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,18n,26p,352b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr17.pfb>
-Output written on calc-template-03.pdf (2 pages, 55557 bytes).
+/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on calc-template-03.pdf (3 pages, 177250 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
