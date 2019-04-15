@@ -1,0 +1,248 @@
+%
+% Although we try to provide a template that completely
+% matches the corresponding assignment, we do expect you
+% to check that you have indeed answered all questions.
+%
+
+% ALSO VERY IMPORTANT:
+% This is just a template to help you with the LaTeX part of the assignment.
+% So you may change it completely according to your own wishes!
+%
+
+\documentclass[a4paper]{article}
+% Typically the 'article' class is appropriate for assignments.
+% And we print it on a4, so we include that as well.
+
+\usepackage{a4wide}
+% To decrease the margins and allow more text on a page.
+
+\usepackage{graphicx}
+% To deal with including pictures.
+
+\usepackage{enumerate}
+% To provide a little bit more functionality than with LaTeX's default
+% enumerate environment.
+
+\usepackage{array} 
+% To provide a little bit more functionality than with LaTeX's default
+% array environment.
+
+\usepackage[american]{babel}
+% Use this if you want to write the document in US English. It takes care of
+% (usually) proper hyphenation.
+% If you want to write your answers in Dutch, please replace 'american'
+% by 'dutch'.
+% Note that after a change it may be that the first compilation of LaTeX
+% fails. That is normal and caused by the fact that in auxiliary files
+% from previous runs, there may still be a \selectlanguage{american}
+% around, which is invalid if 'american' is not incorporated with babel.
+
+\usepackage{amssymb}
+% This package loads mathematical things like the fonts for the blackboard
+% bold for the set of natural numbers.
+
+\usepackage{amsmath}
+\usepackage{clipboard}
+
+\newcommand{\exercise}[2]{\subsection*{Exercise #1}{#2}}
+\newcommand{\exerciseenum}[2]{\subsection*{Exercise #1}{\begin{enumerate}[a)]#2\end{enumerate}}}
+% We defined our own commands to make it easy to present all the
+% exercises in the same style. The first one does not automatically
+% start an 'enumerate' list, the second one does.
+% The [2] means that our command needs two arguments.
+% The #1 and the #2 indicate where we use these arguments in the
+% command.
+% There are several ways to have automatic numbering for the exercises,
+% but here we have chosen to use a subsection for this and use manual
+% numbering. This is because maybe not everyone will be able to do hand in
+% all exercises.
+% Note that we add the '*' to make sure that the subsection is not numbered.
+% (Since we don't have a \section, the numbers for a subsection would be
+% ugly like 0.1, 0.2 et cetera.
+% The environment 'enumerate' automatically numbers the items in this list.
+% The optional [a)] makes sure that the list will be like a), b), c) et cetera.
+
+
+\newcommand{\set}[1]{\ensuremath{\left\{{#1}\right\}}}
+% This command puts curly braces around its argument, so it becomes
+% a set. The \left and \right make sure that the braces grow in size
+% if the contents of the set are large symbols.
+
+\newcommand{\setbuild}[2]{\ensuremath{\set{{#1}\mid{#2}}}}
+% We also introduce a shortcut for using the set builder notation.
+% Do you understand what it does?
+
+% And the next series of commands gives you some of the default sets
+% that were in the slides.
+\newcommand{\TT}{\ensuremath{\mathbb{T}}}
+\newcommand{\FF}{\ensuremath{\mathbb{F}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\NNp}{\ensuremath{\mathbb{N}^{+}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\ZZp}{\ensuremath{\mathbb{Z}^{+}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\QQp}{\ensuremath{\mathbb{Q}^{+}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\RRp}{\ensuremath{\mathbb{R}^{+}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+
+% An the next command gives a shorthand for the power set of a given set.
+\newcommand{\power}[1]{\ensuremath{{\cal P}\left({#1}\right)}}
+
+\newcommand{\sol}[1]{\underline{\underline{#1}}}
+
+
+\title{Calculus and Probability\\Assignment 1}
+
+% Replace the placeholders by your real name, student number and 
+% group (for the exercise hours)
+\author{
+ Christoph Schmidl  % Fill in your name
+ \\ 
+ s4226887  % Fill in your student number
+ \\
+ Group: not assigned yet  % Fill in your assigned group 
+ \\
+ Name of your TA : not assigned yet % Fill in the name of your student assistant
+}
+
+% In LaTeX everything before \begin{document} is called pre-amble.
+% This is where you put all important settings. The real document
+% starts after \begin{document}.
+\begin{document}
+\maketitle 
+% \maketitle makes sure that the title is shown on the first page of
+% the document.
+
+
+% Now we use the command we defined earlier and give it the proper two
+% parameters.
+% Because the second parameter is long, we put a % directly after the
+% opening curly brace {. This is not needed but makes the source file
+% look a bit better.
+
+%\newpage
+
+% #####################################################################################
+%
+% Exercises are below. 
+%
+% #####################################################################################
+
+\exerciseenum{6}{% 
+% The function is zero for 3 distinct values
+\item%a
+$f(x) = x - x^3 = x(1-x^2)= x(1-x)(1+x)$\\
+Therefore, $f(x) = 0$ if $x \in \{ -1,0,1 \}$
+
+
+
+\item%b
+% You can identify 4 different cases (regions) given the three values you found in item a
+$(1-x^2) > 0 \Leftrightarrow |x| < 1 \Leftrightarrow x \in (-1,1)$ So we have to distinguish between four cases:
+
+\begin{itemize}
+	\item Case 1: $x < -1$. Then $x < 0$ and $(1-x^2) < 0$. Therefore, $f(x) > 0$
+	\item Case 2: $x \in (-1,0)$. Then $x < 0$ and $(1-x^2) > 0$. Therefore, $f(x) < 0$
+	\item Case 3: $x \in (0,1)$. Then $x > 0$ and $(1-x^2) > 0$. Therefore, $f(x) > 0$
+	\item Case 4: $x > 1$.Then $x > 0$ and $(1-x^2) < 0$. Therefore, $f(x) < 0$
+\end{itemize}
+
+
+}
+
+\exercise{7}{%
+% You need to distinguis 3 cases depending on the relation between a and b
+\begin{itemize}
+	\item Case 1: When $a = b$, we get $y = \{ a \}$
+	\item Case 2: When $b > a$ then $(b-a) \geq 0$. $y$ runs through all values in $(a,b)$
+	\item Case 3: When $b < a$ then $(b-a) < 0$. $y$ runs through all values in $(b,a)$
+\end{itemize}
+}
+
+\exerciseenum{8}{%
+% Show that one of the following holds:
+%   f(-x) = ... = f(x)  (even), or
+%   f(-x) = ... = -f(x) (odd)
+\item%a
+$f(x) = 3x - x^3$
+
+If we fill in $-x$, we get:\\
+$f(-x) = 3(-x) - (-x)^3 = -3x + x^3 = -(3x - x^3) = -f(x)$.\\
+Therefore, the function is odd. 
+\item%b
+$f(x) = \sqrt[3]{(1-x)^2} + \sqrt[3]{(1+x)^2}$ 
+
+If we fill in $-x$, we get:\\
+$f(-x) = \sqrt[3]{(1- (-x))^2} + \sqrt[3]{(1+(-x))^2} = \sqrt[3]{(1+x)^2} + \sqrt[3]{(1-x)^2} = f(x)$\\
+Therefore, the function is even. 
+}
+
+\exerciseenum{9}{%
+\item%a
+$f(x) = \sqrt{7-x^2} + 1$\\
+To be able to compute the square root, the following property has to hold: $7 - x^2 \geq 0$. So $D(f) = [-\sqrt{7}, \sqrt{7}]$ and $R(f) = [1, \sqrt{7} + 1]$
+\item%b
+$f(x) = \frac{1}{|x|}$\\
+The only value which is excluded is zero because you cannot divide by it. Therefore, $D(f) = \mathbb{R} \backslash \{ 0\}$ and $R(f) = (0, \infty)$
+}
+
+\exerciseenum{10}{%
+\item%a
+$y(cx + d) = ax + b$ $\rightarrow$ $x(cy - a) = -dy + b$, so that $x = \frac{-dy + b}{cy - a}$. Therefore the inverse function $g$ is given by $g(x) = \frac{-dx + b}{cx - a}$
+\item%b
+It is equal to the original function when $d = -a$
+}
+
+\exerciseenum{11}{%
+%In both case you need to simplify the expression first
+\item%a
+$\lim\limits_{x\to 2} \frac{x-2}{x^2+x-6}$ = 
+$\lim\limits_{x\to 2} \frac{x-2}{(x-2)(x+3)}$ =
+$\lim\limits_{x\to 2} \frac{1}{x+3}$
+
+Therefore, $\lim\limits_{x\to 2} \frac{x-2}{x^2+x-6} = \frac{1}{5}$    
+  
+\item%b  
+$\lim\limits_{x\to 1} \frac{x^2-4x+3}{x^2+x-2}$ =
+$\lim\limits_{x\to 1} \frac{(x-1)(x-3)}{(x+2)(x-1)}$ = 
+$\lim\limits_{x\to 1} \frac{(x-3)}{(x+2)}$
+
+Therefore, $\lim\limits_{x\to 1} \frac{x^2-4x+3}{x^2+x-2} = -\frac{2}{3}$
+}
+
+
+\exercise{12}{%
+% This was not discussed yet at the first lecture, but
+% interpret "continuous" as being able to draw the graph without removing your pen from the paper, and
+% you need to fit a straight line between two points.
+
+First we need to find the inverse $f^{-1}(x)$:
+
+\begin{align*}
+x &= \frac{y}{2y + 3}\\
+x(2y + 3) &= y \\
+2xy + 3x &= y\\
+2xy &= y - 3x\\
+2xy - y &= -3x\\
+y(2x - 2) &= -3x\\
+y &= - \frac{3x}{2x-1}
+\end{align*}
+
+Hence, the inverse $f^{-1}(x) = - \frac{3x}{2x - 1}$, and therefore the endpoints we seek are $p_1 = f^{-1}(-2) = - \frac{6}{5} = -1.2$ and $p_2=f^{-1}(3) = - \frac{9}{5} = -1.8$. We then need to compute the line $y=m\cdot x + b$ of the line going through points $p_1$ and $p_2$ 
+where $m$ is the slope of the function and $b$ the intercept.\\
+
+Finding the slope:
+
+\begin{align*}
+m &= \frac{y_2 - y_1}{x_2 - x_1}\\
+&= \frac{3 + 2}{-1.8 + 1.2}\\
+&\approx -8.3
+\end{align*}
+
+}
+
+
+
+\end{document}
+
